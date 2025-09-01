@@ -6,7 +6,7 @@ class ConfirmScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[900],
+      // backgroundColor: Colors.grey[900],
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 15.0),
@@ -14,23 +14,24 @@ class ConfirmScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             // crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              const Text(
-                'Check your email',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold,
-                  fontFamily: 'Jost',
+              Container(
+                child: Text(
+                  'Check your email',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                    fontFamily: 'Jost',
+                  ),
                 ),
               ),
-              const SizedBox(height: 40),
-
               Image.asset(
                 'assets/gif.png',
                 width: double.infinity,
                 fit: BoxFit.cover,
               ),
-              const SizedBox(height: 20),
+
+              const SizedBox(height: 5),
               Text(
                 'We sent an email to zimrofashion@gmail.com to \nverify your account',
                 textAlign: TextAlign.center,
@@ -40,7 +41,7 @@ class ConfirmScreen extends StatelessWidget {
                   fontFamily: 'Jost-Bold.ttf',
                 ),
               ),
-              const SizedBox(height: 40),
+              const SizedBox(height: 30),
               ElevatedButton(
                 onPressed: () {
                   // TODO: Implement open email app functionality
