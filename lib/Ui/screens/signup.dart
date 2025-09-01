@@ -1,3 +1,4 @@
+import 'package:e_commerce/Ui/screens/confirmScreen.dart';
 import 'package:flutter/material.dart';
 
 class SignUpScreen extends StatefulWidget {
@@ -30,7 +31,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[900],
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20.0),
@@ -110,7 +110,12 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 ),
                 const SizedBox(height: 20),
                 ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => ConfirmScreen()),
+                    );
+                  },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: _isEmailFilled
                         ? Colors.yellow
@@ -147,7 +152,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         'Log in',
                         style: TextStyle(
                           color: Colors.yellow,
-                          decoration: TextDecoration.underline,
+                          // decoration: TextDecoration.underline,
                           fontFamily: 'Jost',
                         ),
                       ),
@@ -155,28 +160,30 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   ],
                 ),
                 const SizedBox(height: 20),
-                RichText(
-                  textAlign: TextAlign.center,
-                  text: const TextSpan(
-                    style: TextStyle(
-                      color: Colors.grey,
-                      fontFamily: 'Jost',
-                      fontSize: 12,
+                Center(
+                  child: RichText(
+                    textAlign: TextAlign.center,
+                    text: const TextSpan(
+                      style: TextStyle(
+                        color: Colors.grey,
+                        fontFamily: 'Jost',
+                        fontSize: 12,
+                      ),
+                      children: [
+                        TextSpan(text: 'By signing up you accept the '),
+                        TextSpan(
+                          text: '\nTerm of service',
+                          style: TextStyle(color: Colors.yellow),
+                          // recognizer: TapGestureRecognizer()..onTap = () => launch('URL'),
+                        ),
+                        TextSpan(text: ' and '),
+                        TextSpan(
+                          text: 'Privacy Policy',
+                          style: TextStyle(color: Colors.yellow),
+                          // recognizer: TapGestureRecognizer()..onTap = () => launch('URL'),
+                        ),
+                      ],
                     ),
-                    children: [
-                      TextSpan(text: 'By signing up you accept the '),
-                      TextSpan(
-                        text: '\nTerm of service',
-                        style: TextStyle(color: Colors.yellow),
-                        // recognizer: TapGestureRecognizer()..onTap = () => launch('URL'),
-                      ),
-                      TextSpan(text: ' and '),
-                      TextSpan(
-                        text: 'Privacy Policy',
-                        style: TextStyle(color: Colors.yellow),
-                        // recognizer: TapGestureRecognizer()..onTap = () => launch('URL'),
-                      ),
-                    ],
                   ),
                 ),
               ],

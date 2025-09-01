@@ -1,3 +1,5 @@
+import 'package:e_commerce/Ui/screens/loginScreen.dart';
+import 'package:e_commerce/Ui/screens/signup.dart';
 import 'package:e_commerce/Ui/widgets/imageCustom.dart';
 import 'package:flutter/material.dart';
 
@@ -46,7 +48,12 @@ class AuthScreen extends StatelessWidget {
             child: Column(
               children: [
                 OutlinedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => SignUpScreen()),
+                    );
+                  },
                   style: OutlinedButton.styleFrom(
                     backgroundColor: Colors.white,
                     foregroundColor: Colors.black,
@@ -66,7 +73,12 @@ class AuthScreen extends StatelessWidget {
                 ),
                 const SizedBox(height: 15),
                 OutlinedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => LogInScreen()),
+                    );
+                  },
                   style: OutlinedButton.styleFrom(
                     side: const BorderSide(color: Colors.white),
                     foregroundColor: Colors.white,

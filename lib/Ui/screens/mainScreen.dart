@@ -1,5 +1,4 @@
-import 'dart:math' as math;
-
+import 'package:e_commerce/Ui/screens/authScreen.dart';
 import 'package:e_commerce/Ui/widgets/imageCustom.dart';
 import 'package:flutter/material.dart';
 
@@ -13,7 +12,8 @@ class MainScreen extends StatefulWidget {
 class _MainScreenState extends State<MainScreen>
     with SingleTickerProviderStateMixin {
   late final AnimationController _controller;
-  late final Animation<double> _animation;
+  late final Animation<double> _scaleAnim;
+  late final Animation<double> _fadeAnim;
 
   @override
   void initState() {
@@ -23,14 +23,42 @@ class _MainScreenState extends State<MainScreen>
       duration: const Duration(seconds: 3),
     );
 
-    // animate from 0 to pi (180deg) and back -> a flipping effect
-    _animation = Tween<double>(
+    _scaleAnim = Tween<double>(
+      begin: 0.8,
+      end: 1.0,
+    ).animate(CurvedAnimation(parent: _controller, curve: Curves.easeOutBack));
+    _fadeAnim = Tween<double>(
       begin: 0.0,
-      end: math.pi,
-    ).animate(CurvedAnimation(parent: _controller, curve: Curves.easeInOut));
+      end: 1.0,
+    ).animate(CurvedAnimation(parent: _controller, curve: Curves.easeIn));
 
-    // Repeat animation back and forth
-    _controller.repeat(reverse: true);
+    _controller.forward().whenComplete(() {
+      if (!mounted) return;
+      Navigator.of(context).pushReplacement(
+        PageRouteBuilder(
+          transitionDuration: const Duration(milliseconds: 600),
+          pageBuilder: (context, animation, secondaryAnimation) =>
+              const AuthScreen(),
+          transitionsBuilder: (context, animation, secondaryAnimation, child) {
+            final fade = CurvedAnimation(
+              parent: animation,
+              curve: Curves.easeIn,
+            );
+            final slide =
+                Tween<Offset>(
+                  begin: const Offset(0, 0.08),
+                  end: Offset.zero,
+                ).animate(
+                  CurvedAnimation(parent: animation, curve: Curves.easeOut),
+                );
+            return FadeTransition(
+              opacity: fade,
+              child: SlideTransition(position: slide, child: child),
+            );
+          },
+        ),
+      );
+    });
   }
 
   @override
@@ -48,17 +76,11 @@ class _MainScreenState extends State<MainScreen>
           Container(color: Colors.black.withOpacity(0.5)),
           Center(
             child: AnimatedBuilder(
-              animation: _animation,
+              animation: _controller,
               builder: (context, child) {
-                // add a small perspective
-                final transform = Matrix4.identity()
-                  ..setEntry(3, 2, 0.001)
-                  ..rotateY(_animation.value);
-
-                return Transform(
-                  transform: transform,
-                  alignment: Alignment.center,
-                  child: child,
+                return Opacity(
+                  opacity: _fadeAnim.value,
+                  child: Transform.scale(scale: _scaleAnim.value, child: child),
                 );
               },
               child: Image.asset("assets/logo.png", width: 140, height: 140),

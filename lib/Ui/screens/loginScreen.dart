@@ -1,3 +1,4 @@
+import 'package:e_commerce/Ui/screens/confirmScreen.dart';
 import 'package:flutter/material.dart';
 
 class LogInScreen extends StatefulWidget {
@@ -110,7 +111,12 @@ class _LogInScreenState extends State<LogInScreen> {
                 ),
                 const SizedBox(height: 20),
                 ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => ConfirmScreen()),
+                    );
+                  },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: _isEmailFilled
                         ? Colors.yellow
