@@ -12,6 +12,7 @@ dependencies:
   cupertino_icons: ^1.0.8
   flutter:
     sdk: flutter
+  flutter_svg: ^2.2.0
   google_sign_in: ^7.1.1
 
 dev_dependencies:
@@ -40,7 +41,6 @@ flutter:
         - asset: fonts/Jost-Regular.ttf
         - asset: fonts/Jost-Bold.ttf
           weight: 700
-
 
 flutter_launcher_icons:
   android: "launcher_icon"

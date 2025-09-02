@@ -1,5 +1,6 @@
 import 'package:e_commerce/Ui/screens/auth/confirmScreen.dart';
 import 'package:e_commerce/Ui/screens/auth/mainScreen.dart';
+import 'package:e_commerce/Ui/screens/home/homeScreen.dart';
 import 'package:e_commerce/theme.dart';
 import 'package:flutter/material.dart';
 
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
       themeMode: ThemeMode.dark,
       theme: AppThemes.light,
       darkTheme: AppThemes.dark,
-      home: const MainScreen(),
+      home: HomeScreen(),
     );
   }
 }

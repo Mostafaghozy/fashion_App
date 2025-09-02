@@ -5,12 +5,23 @@ class AppThemes {
     brightness: Brightness.light,
     primarySwatch: Colors.yellow,
     fontFamily: 'Jost',
+    appBarTheme: const AppBarTheme(
+      backgroundColor: Colors.transparent,
+      elevation: 0,
+      foregroundColor: Colors.black,
+    ),
   );
 
   static ThemeData dark = ThemeData(
     brightness: Brightness.dark,
     scaffoldBackgroundColor: Colors.grey[900],
+
     primaryColor: Colors.yellow,
+    appBarTheme: const AppBarTheme(
+      backgroundColor: Colors.transparent,
+      elevation: 0,
+      foregroundColor: Colors.white,
+    ),
     colorScheme: const ColorScheme.dark(
       primary: Colors.yellow,
       onPrimary: Colors.black,
