@@ -1,5 +1,5 @@
-import 'package:e_commerce/Ui/screens/confirmScreen.dart';
-import 'package:e_commerce/Ui/screens/mainScreen.dart';
+import 'package:e_commerce/Ui/screens/auth/confirmScreen.dart';
+import 'package:e_commerce/Ui/screens/auth/mainScreen.dart';
 import 'package:e_commerce/theme.dart';
 import 'package:flutter/material.dart';
 

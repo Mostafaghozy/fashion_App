@@ -1,4 +1,4 @@
-import 'package:e_commerce/Ui/screens/confirmScreen.dart';
+import 'package:e_commerce/Ui/screens/auth/confirmScreen.dart';
 import 'package:flutter/material.dart';
 
 class LogInScreen extends StatefulWidget {
