@@ -20,7 +20,7 @@ class _CollectionsFilterBarState extends State<CollectionsFilterBar> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.transparent, // الخلفية زي الصورة
+      color: Colors.transparent, 
       padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 12),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
