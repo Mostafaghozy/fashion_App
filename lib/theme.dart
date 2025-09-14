@@ -8,13 +8,13 @@ class AppThemes {
     appBarTheme: const AppBarTheme(
       backgroundColor: Colors.transparent,
       elevation: 0,
-      foregroundColor: Colors.black,
+      foregroundColor: Colors.grey,
     ),
   );
 
   static ThemeData dark = ThemeData(
     brightness: Brightness.dark,
-    scaffoldBackgroundColor: Colors.grey[900],
+    scaffoldBackgroundColor: Colors.black,
 
     primaryColor: Colors.yellow,
     appBarTheme: const AppBarTheme(

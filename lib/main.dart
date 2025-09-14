@@ -1,10 +1,15 @@
-import 'package:e_commerce/Ui/screens/MainScreen.dart';
+import 'package:device_preview/device_preview.dart';
+import 'package:e_commerce/Ui/screens/home/MainScreen.dart';
 import 'package:e_commerce/theme.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(const MyApp());
-}
+void main() => runApp(
+  DevicePreview(
+    enabled: !kReleaseMode,
+    builder: (context) => MyApp(), // Wrap your app
+  ),
+);
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -12,9 +17,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      useInheritedMediaQuery: true,
+      locale: DevicePreview.locale(context),
+      builder: DevicePreview.appBuilder,
       debugShowCheckedModeBanner: false,
       title: "Fashion App",
-      themeMode: ThemeMode.dark,
+      themeMode: ThemeMode.system,
       theme: AppThemes.light,
       darkTheme: AppThemes.dark,
       home: MainScreen(),
