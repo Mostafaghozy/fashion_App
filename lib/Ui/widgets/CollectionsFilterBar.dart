@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:e_commerce/Ui/widgets/HomeFilterSheet.dart';
 
 class CollectionsFilterBar extends StatefulWidget {
   const CollectionsFilterBar({super.key});
@@ -20,7 +21,7 @@ class _CollectionsFilterBarState extends State<CollectionsFilterBar> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.transparent, 
+      color: Colors.transparent,
       padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 12),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -72,7 +73,14 @@ class _CollectionsFilterBarState extends State<CollectionsFilterBar> {
           ),
           IconButton(
             icon: const Icon(Icons.filter_alt_outlined, color: Colors.white),
-            onPressed: () {},
+            onPressed: () {
+              showModalBottomSheet(
+                context: context,
+                isScrollControlled: true,
+                backgroundColor: Colors.transparent,
+                builder: (ctx) => const HomeFilterSheet(),
+              );
+            },
           ),
         ],
       ),
