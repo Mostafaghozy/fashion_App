@@ -7,7 +7,9 @@ import 'package:e_commerce/Ui/widgets/CustomBottomNavBar.dart';
 import 'package:flutter/material.dart';
 
 class MainScreen extends StatefulWidget {
-  const MainScreen({Key? key}) : super(key: key);
+  final int initialIndex;
+
+  const MainScreen({super.key, this.initialIndex = 0});
 
   @override
   State<MainScreen> createState() => _MainScreenState();
@@ -15,6 +17,12 @@ class MainScreen extends StatefulWidget {
 
 class _MainScreenState extends State<MainScreen> {
   int _currentIndex = 0;
+
+  @override
+  void initState() {
+    super.initState();
+    _currentIndex = widget.initialIndex;
+  }
 
   final List<Widget> _screens = [
     HomeScreen(),

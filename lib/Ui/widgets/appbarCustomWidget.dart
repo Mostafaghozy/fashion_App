@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:e_commerce/Ui/screens/profile/profileScreen.dart';
 
 class AppBarCustomWidget extends StatelessWidget
     implements PreferredSizeWidget {
@@ -25,7 +26,15 @@ class AppBarCustomWidget extends StatelessWidget
       actions: [
         Padding(
           padding: const EdgeInsets.all(8.0),
-          child: Image.asset("assets/personProfile.png"),
+          child: GestureDetector(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const ProfileScreen()),
+              );
+            },
+            child: Image.asset("assets/personProfile.png"),
+          ),
         ),
       ],
     );
