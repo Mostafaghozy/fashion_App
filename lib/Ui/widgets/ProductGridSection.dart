@@ -1,5 +1,5 @@
 import 'package:e_commerce/Ui/widgets/ProductCardGrid.dart';
-import 'package:e_commerce/model/productModel.dart';
+import 'package:e_commerce/data/model/productModel.dart';
 import 'package:flutter/material.dart';
 
 class ProductGridSection extends StatelessWidget {

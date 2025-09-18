@@ -1,3 +1,5 @@
+import 'package:e_commerce/Ui/screens/home/MainScreen.dart';
+import 'package:e_commerce/Ui/widgets/CustomBottomNavBar.dart';
 import 'package:flutter/material.dart';
 import 'package:e_commerce/Ui/widgets/custom_input_field.dart';
 
@@ -154,6 +156,17 @@ class _EditPersonalInfoState extends State<EditPersonalInfo> {
             ),
           ],
         ),
+      ),
+      bottomNavigationBar: CustomBottomNavBar(
+        currentIndex: 0,
+        onTap: (index) {
+          Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(
+              builder: (context) => MainScreen(initialIndex: index),
+            ),
+          );
+        },
       ),
     );
   }

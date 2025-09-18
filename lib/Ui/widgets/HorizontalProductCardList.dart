@@ -1,5 +1,5 @@
 import 'package:e_commerce/Ui/widgets/ProductCardHorizontal.dart';
-import 'package:e_commerce/model/productModel.dart';
+import 'package:e_commerce/data/model/productModel.dart';
 import 'package:flutter/material.dart';
 
 class HorizontalProductCardList extends StatelessWidget {

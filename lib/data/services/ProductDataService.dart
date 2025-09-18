@@ -1,4 +1,4 @@
-import 'package:e_commerce/model/productModel.dart';
+import 'package:e_commerce/data/model/productModel.dart';
 
 class ProductDataService {
   static final List<Product> _allProducts = [

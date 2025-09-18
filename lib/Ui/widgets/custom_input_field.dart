@@ -13,7 +13,7 @@ class CustomInputField extends StatelessWidget {
   child; // when provided, renders this inside the same outlined box
 
   const CustomInputField({
-    Key? key,
+    super.key,
     required this.label,
     this.controller,
     this.hintText,
@@ -23,7 +23,7 @@ class CustomInputField extends StatelessWidget {
     this.onChanged,
     this.validator,
     this.child,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

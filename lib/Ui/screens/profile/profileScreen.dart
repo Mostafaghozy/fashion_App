@@ -1,7 +1,8 @@
+import 'package:e_commerce/Ui/widgets/profile/address/addressBook.dart';
 import 'package:e_commerce/Ui/widgets/RowProfileWidget.dart';
 import 'package:e_commerce/Ui/widgets/CustomBottomNavBar.dart';
 import 'package:e_commerce/Ui/screens/home/MainScreen.dart';
-import 'package:e_commerce/Ui/widgets/profile/personalInformationWidget.dart';
+import 'package:e_commerce/Ui/widgets/profile/PersonInformation/personalInformationWidget.dart';
 import 'package:flutter/material.dart';
 
 class ProfileScreen extends StatelessWidget {
@@ -46,10 +47,7 @@ class ProfileScreen extends StatelessWidget {
               Divider(thickness: 0.5, color: Colors.grey.withOpacity(0.3)),
               SizedBox(height: 10),
 
-              RowProfileWidget(
-                imageAsset: 'assets/icons/book.png',
-                title: 'Address Book',
-              ),
+              AddressBook(),
               SizedBox(height: 10),
               Divider(thickness: 0.5, color: Colors.grey.withOpacity(0.3)),
               SizedBox(height: 10),

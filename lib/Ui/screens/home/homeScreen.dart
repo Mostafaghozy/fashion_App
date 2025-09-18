@@ -6,8 +6,8 @@ import 'package:e_commerce/Ui/widgets/ProductGridSection.dart';
 import 'package:e_commerce/Ui/widgets/WelcomeHeader.dart';
 import 'package:e_commerce/Ui/widgets/appbarCustomWidget.dart';
 import 'package:e_commerce/Ui/widgets/seeAllWidget.dart';
-import 'package:e_commerce/services/ProductDataService.dart';
-import 'package:e_commerce/model/productModel.dart';
+import 'package:e_commerce/data/services/ProductDataService.dart';
+import 'package:e_commerce/data/model/productModel.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
