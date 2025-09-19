@@ -5,9 +5,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(
-  // DevicePreview(
-  //   enabled: !kReleaseMode,
-  //   builder: (context) => MyApp(),
+  // DevicePreview(enabled: !kReleaseMode, builder: (context) => MyApp()),
   MyApp(), // Wrap your app
 );
 

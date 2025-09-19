@@ -10,21 +10,21 @@ class ProfileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(8),
-      child: Scaffold(
-        appBar: AppBar(
-          automaticallyImplyLeading: false,
-          actions: [
-            GestureDetector(
-              onTap: () {
-                Navigator.pop(context);
-              },
-              child: Image.asset("assets/icons/Close Square.png"),
-            ),
-          ],
-        ),
-        body: SingleChildScrollView(
+    return Scaffold(
+      appBar: AppBar(
+        automaticallyImplyLeading: false,
+        actions: [
+          GestureDetector(
+            onTap: () {
+              Navigator.pop(context);
+            },
+            child: Image.asset("assets/icons/Close Square.png"),
+          ),
+        ],
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(8),
+        child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -133,17 +133,17 @@ class ProfileScreen extends StatelessWidget {
             ],
           ),
         ),
-        bottomNavigationBar: CustomBottomNavBar(
-          currentIndex: 0,
-          onTap: (index) {
-            Navigator.pushReplacement(
-              context,
-              MaterialPageRoute(
-                builder: (context) => MainScreen(initialIndex: index),
-              ),
-            );
-          },
-        ),
+      ),
+      bottomNavigationBar: CustomBottomNavBar(
+        currentIndex: 0,
+        onTap: (index) {
+          Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(
+              builder: (context) => MainScreen(initialIndex: index),
+            ),
+          );
+        },
       ),
     );
   }
