@@ -1,4 +1,7 @@
+import 'package:e_commerce/Ui/screens/home/MainScreen.dart';
+import 'package:e_commerce/Ui/widgets/CustomBottomNavBar.dart';
 import 'package:e_commerce/Ui/widgets/payment/PaymentOptionsWidget.dart';
+import 'package:e_commerce/Ui/screens/payment/CreditCardScreen.dart';
 import 'package:flutter/material.dart';
 
 class PaymentOptionsScreen extends StatelessWidget {
@@ -48,6 +51,12 @@ class PaymentOptionsScreen extends StatelessWidget {
             PaymentOptionsWidget(
               image: 'assets/pay/credit-card.png',
               title: 'Credit or debit card',
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (_) => CardDetailsScreen()),
+                );
+              },
             ),
 
             Divider(thickness: 0.5, color: Colors.grey.withOpacity(0.3)),
@@ -67,6 +76,17 @@ class PaymentOptionsScreen extends StatelessWidget {
             Divider(thickness: 0.5, color: Colors.grey.withOpacity(0.3)),
           ],
         ),
+      ),
+      bottomNavigationBar: CustomBottomNavBar(
+        currentIndex: 0,
+        onTap: (index) {
+          Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(
+              builder: (context) => MainScreen(initialIndex: index),
+            ),
+          );
+        },
       ),
     );
   }

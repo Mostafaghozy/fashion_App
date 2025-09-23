@@ -6,18 +6,17 @@ class PaymentOptionsWidget extends StatelessWidget {
     required this.image,
     required this.title,
     this.hasWhiteBackground = false,
+    this.onTap,
   });
   final String image;
   final String title;
   final bool hasWhiteBackground;
+  final VoidCallback? onTap;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {
-        // Handle credit/debit card selection
-        print('Credit or debit card selected');
-      },
+      onTap: onTap,
       child: Container(
         padding: EdgeInsets.symmetric(vertical: 16),
         decoration: BoxDecoration(
