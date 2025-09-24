@@ -1,4 +1,5 @@
 import 'package:e_commerce/Ui/screens/payment/CreditCardScreen.dart';
+import 'package:e_commerce/Ui/screens/payment/PaymentScreen.dart';
 import 'package:e_commerce/Ui/widgets/payment/PaymentMethodCard.dart';
 import 'package:flutter/material.dart';
 
@@ -68,7 +69,7 @@ class PaymentMethodsPage extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => CardDetailsScreen(),
+                        builder: (context) => PaymentOptionsScreen(),
                       ),
                     );
                   },

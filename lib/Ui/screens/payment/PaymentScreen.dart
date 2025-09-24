@@ -1,4 +1,5 @@
 import 'package:e_commerce/Ui/screens/home/MainScreen.dart';
+import 'package:e_commerce/Ui/screens/payment/add_paypal_screen.dart';
 import 'package:e_commerce/Ui/widgets/CustomBottomNavBar.dart';
 import 'package:e_commerce/Ui/widgets/payment/PaymentOptionsWidget.dart';
 import 'package:e_commerce/Ui/screens/payment/CreditCardScreen.dart';
@@ -65,6 +66,12 @@ class PaymentOptionsScreen extends StatelessWidget {
               image: 'assets/pay/PayPal.png',
               title: 'PayPal',
               hasWhiteBackground: true,
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (_) => AddPayPalScreen()),
+                );
+              },
             ),
             Divider(thickness: 0.5, color: Colors.grey.withOpacity(0.3)),
 

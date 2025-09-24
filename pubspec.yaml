@@ -14,8 +14,8 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_credit_card: ^4.1.0
+  flutter_paypal_payment: ^1.0.8
   flutter_svg: ^2.2.0
-  # google_sign_in: ^7.1.1
 
 dev_dependencies:
   flutter_launcher_icons: ^0.14.4
