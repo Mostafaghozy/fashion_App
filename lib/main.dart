@@ -4,6 +4,7 @@ import 'package:e_commerce/Ui/screens/payment/CreditCardScreen.dart';
 import 'package:e_commerce/Ui/screens/payment/PaymentMethodsScreen.dart';
 import 'package:e_commerce/Ui/screens/payment/PaymentScreen.dart';
 import 'package:e_commerce/Ui/screens/payment/my_orders_screen.dart';
+import 'package:e_commerce/Ui/screens/payment/order_details_screen.dart';
 import 'package:e_commerce/core/theme.dart';
 import 'package:e_commerce/Ui/screens/payment/add_paypal_screen.dart';
 import 'package:e_commerce/test.dart';
@@ -29,7 +30,7 @@ class MyApp extends StatelessWidget {
       themeMode: ThemeMode.system,
       theme: AppThemes.light,
       darkTheme: AppThemes.dark,
-      home: MyOrdersScreen(),
+      home: OrderDetailsScreen(),
     );
   }
 }
