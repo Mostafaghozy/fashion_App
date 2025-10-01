@@ -1,4 +1,4 @@
-import 'package:e_commerce/Ui/widgets/ProductCardGrid.dart';
+import 'package:e_commerce/Ui/widgets/category/ProductCardGrid.dart';
 import 'package:e_commerce/data/model/productModel.dart';
 import 'package:flutter/material.dart';
 
@@ -60,11 +60,12 @@ class ProductGridSection extends StatelessWidget {
   Widget _buildGridCard(Product product, BuildContext context) {
     return Expanded(
       child: Container(
-        height: 300,
+        height: 400,
         child: ProductCardGrid(
           imageUrl: product.imageUrl,
           title: product.title,
           price: product.price,
+          imageHeight: 320,
           isFavorite: product.isFavorite,
           onFavoritePressed: () => onToggleFavorite(product.id),
           onCardPressed: () => onCardPressed(product),

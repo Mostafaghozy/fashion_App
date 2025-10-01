@@ -1,4 +1,4 @@
-import 'package:e_commerce/Ui/widgets/ProductCardComponent.dart';
+import 'package:e_commerce/Ui/widgets/category/ProductCardComponent.dart';
 import 'package:e_commerce/data/model/productModel.dart';
 import 'package:flutter/material.dart';
 
@@ -20,7 +20,7 @@ class _HorizontalProductListState extends State<HorizontalProductList> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 280,
+      height: 300,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         padding: EdgeInsets.symmetric(horizontal: 5),

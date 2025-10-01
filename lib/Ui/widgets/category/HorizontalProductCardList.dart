@@ -1,4 +1,4 @@
-import 'package:e_commerce/Ui/widgets/ProductCardHorizontal.dart';
+import 'package:e_commerce/Ui/widgets/category/ProductCardHorizontal.dart';
 import 'package:e_commerce/data/model/productModel.dart';
 import 'package:flutter/material.dart';
 
@@ -7,14 +7,15 @@ class HorizontalProductCardList extends StatelessWidget {
   final Function(Product) onCardPressed;
 
   const HorizontalProductCardList({
-    Key? key,
+    super.key,
     required this.products,
     required this.onCardPressed,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
     return Container(
+      color: Colors.transparent,
       height: 140,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
@@ -31,7 +32,7 @@ class HorizontalProductCardList extends StatelessWidget {
               price: product.price,
               isFavorite: product.isFavorite,
               width: 350,
-              height: 90,
+              height: 100,
               onCardPressed: () => onCardPressed(product),
             ),
           );

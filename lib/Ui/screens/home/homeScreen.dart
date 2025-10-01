@@ -1,11 +1,11 @@
 import 'package:e_commerce/Ui/widgets/CollectionsFilterBar.dart';
 import 'package:e_commerce/Ui/widgets/ContainerCustomWidget.dart';
-import 'package:e_commerce/Ui/widgets/HorizontalProductList.dart';
-import 'package:e_commerce/Ui/widgets/HorizontalProductCardList.dart';
-import 'package:e_commerce/Ui/widgets/ProductGridSection.dart';
+import 'package:e_commerce/Ui/widgets/category/HorizontalProductList.dart';
+import 'package:e_commerce/Ui/widgets/category/HorizontalProductCardList.dart';
+import 'package:e_commerce/Ui/widgets/category/ProductGridSection.dart';
 import 'package:e_commerce/Ui/widgets/WelcomeHeader.dart';
 import 'package:e_commerce/Ui/widgets/appbarCustomWidget.dart';
-import 'package:e_commerce/Ui/widgets/seeAllWidget.dart';
+import 'package:e_commerce/Ui/widgets/category/seeAllWidget.dart';
 import 'package:e_commerce/data/services/ProductDataService.dart';
 import 'package:e_commerce/data/model/productModel.dart';
 import 'package:flutter/material.dart';

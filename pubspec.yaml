@@ -38,6 +38,7 @@ flutter:
     - assets/
     - assets/icons/
     - assets/pay/
+    - assets/all_product/
 
   fonts:
     - family: Jost
