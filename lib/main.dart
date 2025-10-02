@@ -1,7 +1,7 @@
 import 'package:device_preview/device_preview.dart';
 import 'package:e_commerce/AnimationScreen.dart';
 import 'package:e_commerce/Ui/screens/home/MainScreen.dart';
-import 'package:e_commerce/Ui/screens/home/home_catalog_screen.dart';
+import 'package:e_commerce/Ui/screens/home/AllProductScreen.dart';
 import 'package:e_commerce/Ui/screens/payment/CreditCardScreen.dart';
 import 'package:e_commerce/Ui/screens/payment/PaymentMethodsScreen.dart';
 import 'package:e_commerce/Ui/screens/payment/PaymentScreen.dart';
@@ -32,7 +32,7 @@ class MyApp extends StatelessWidget {
       themeMode: ThemeMode.system,
       theme: AppThemes.light,
       darkTheme: AppThemes.dark,
-      home: const HomeCatalogScreen(),
+      home: const AllProductScreen(),
     );
   }
 }

@@ -1,3 +1,4 @@
+import 'package:e_commerce/Ui/screens/home/home_catalog_screen.dart';
 import 'package:e_commerce/Ui/widgets/CollectionsFilterBar.dart';
 import 'package:e_commerce/Ui/widgets/ContainerCustomWidget.dart';
 import 'package:e_commerce/Ui/widgets/category/HorizontalProductList.dart';
@@ -96,7 +97,18 @@ class _HomeScreenState extends State<HomeScreen> {
                 },
               ),
               SizedBox(height: 20),
-              seeAllWidget(text1: 'All Product', text2: 'See all'),
+              seeAllWidget(
+                text1: 'All Product',
+                text2: 'See all',
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const AllProductScreen(),
+                    ),
+                  );
+                },
+              ),
 
               SizedBox(height: 15),
 

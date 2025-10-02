@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
 
-Row seeAllWidget({required String text1, required String text2}) {
+Row seeAllWidget({
+  VoidCallback? onTap,
+  required String text1,
+  required String text2,
+}) {
   return Row(
     children: [
       Text(text1, style: TextStyle(fontWeight: FontWeight.bold)),
       Spacer(),
       GestureDetector(
         onTap: () {
-          // Navigator.push(
-          //   context,
-          //   MaterialPageRoute(builder: (context) => ()),
-          // );
+          VoidCallback;
         },
         child: Row(
           children: [

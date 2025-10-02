@@ -1,3 +1,6 @@
+import 'package:e_commerce/Ui/screens/home/MainScreen.dart';
+import 'package:e_commerce/Ui/screens/search/SearchScreen.dart';
+import 'package:e_commerce/Ui/widgets/CustomBottomNavBar.dart';
 import 'package:e_commerce/Ui/widgets/category/HorizontalProductCardList.dart';
 import 'package:e_commerce/Ui/widgets/category/HorizontalProductList.dart';
 import 'package:e_commerce/Ui/widgets/category/ProductGridSection.dart';
@@ -7,18 +10,20 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import '../../widgets/category/section_title.dart';
 import '../../widgets/category/category_item.dart';
+import '../../widgets/category/category_list.dart';
+import '../../widgets/category/sort_filter_bar.dart';
 
-class HomeCatalogScreen extends StatefulWidget {
-  const HomeCatalogScreen({super.key, List<String>? images})
+class AllProductScreen extends StatefulWidget {
+  const AllProductScreen({super.key, List<String>? images})
     : images = images ?? kCategoryDefaultImages;
 
   final List<String> images;
 
   @override
-  State<HomeCatalogScreen> createState() => _HomeCatalogScreenState();
+  State<AllProductScreen> createState() => _AllProductScreenState();
 }
 
-class _HomeCatalogScreenState extends State<HomeCatalogScreen> {
+class _AllProductScreenState extends State<AllProductScreen> {
   void toggleFavorite(String productId) {
     setState(() {
       ProductDataService.toggleFavorite(productId);
@@ -39,25 +44,19 @@ class _HomeCatalogScreenState extends State<HomeCatalogScreen> {
                 const SizedBox(height: 8),
                 const SectionTitle(title: 'Categories'),
                 const SizedBox(height: 8),
-                SizedBox(
-                  height: 100,
-                  child: ListView.separated(
-                    scrollDirection: Axis.horizontal,
-                    itemCount: kCategories.length,
-                    separatorBuilder: (_, __) => const SizedBox(width: 5),
-                    itemBuilder: (context, index) {
-                      final label = kCategories[index];
-                      final img = widget.images[index % widget.images.length];
-                      return CategoryItem(
-                        imagePath: img,
-                        label: label,
-                        isActive: index == 0,
-                        onTap: () {
-                          // TODO: wire up selection state if needed
-                        },
-                      );
-                    },
-                  ),
+                CategoryList(
+                  images: widget.images,
+                  labels: kCategories,
+                  initialIndex: 0,
+                  onSelected: (index) {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        content: Text(
+                          'Selected category: ${kCategories[index]}',
+                        ),
+                      ),
+                    );
+                  },
                 ),
                 const SizedBox(height: 18),
 
@@ -160,10 +159,30 @@ class _HomeCatalogScreenState extends State<HomeCatalogScreen> {
                     );
                   },
                 ),
+                const SizedBox(height: 20),
+                SortFilterBar(
+                  onSort: () => ScaffoldMessenger.of(
+                    context,
+                  ).showSnackBar(const SnackBar(content: Text('Sort tapped'))),
+                  onFilter: () => ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(content: Text('Filter tapped')),
+                  ),
+                ),
               ],
             ),
           ),
         ),
+      ),
+      bottomNavigationBar: CustomBottomNavBar(
+        currentIndex: 0,
+        onTap: (index) {
+          Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(
+              builder: (context) => MainScreen(initialIndex: index),
+            ),
+          );
+        },
       ),
     );
   }

@@ -65,7 +65,7 @@ class ProductCardGrid extends StatelessWidget {
                         onTap: onFavoritePressed,
                         child: Icon(
                           isFavorite ? Icons.favorite : Icons.favorite_border,
-                          color: isFavorite ? Colors.red : Colors.white,
+                          color: isFavorite ? Colors.red : Colors.black,
                           size: 20,
                         ),
                       ),
@@ -98,7 +98,7 @@ class ProductCardGrid extends StatelessWidget {
                         onTap: onFavoritePressed,
                         child: Icon(
                           isFavorite ? Icons.favorite : Icons.favorite_border,
-                          color: isFavorite ? Colors.red : Colors.white,
+                          color: isFavorite ? Colors.red : Colors.black,
                           size: 20,
                         ),
                       ),
@@ -141,14 +141,10 @@ class ProductCardGrid extends StatelessWidget {
                         Container(
                           padding: const EdgeInsets.all(4),
                           decoration: BoxDecoration(
-                            color: Colors.yellow[700],
+                            color: Colors.yellow[500],
                             shape: BoxShape.circle,
                           ),
-                          child: Icon(
-                            Icons.shopping_bag_outlined,
-                            color: Colors.black,
-                            size: 16,
-                          ),
+                          child: Image.asset("assets/icons/Bag.png"),
                         ),
                       ],
                     ),

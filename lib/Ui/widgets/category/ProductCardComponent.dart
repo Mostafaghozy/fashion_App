@@ -70,7 +70,7 @@ class ProductCard extends StatelessWidget {
                         isFavorite
                             ? Icons.favorite_outlined
                             : Icons.favorite_border_outlined,
-                        color: isFavorite ? Colors.red : Colors.grey[900],
+                        color: isFavorite ? Colors.red : Colors.black,
                         size: 22,
                       ),
                     ),
@@ -82,14 +82,10 @@ class ProductCard extends StatelessWidget {
                     child: Container(
                       padding: const EdgeInsets.all(6),
                       decoration: BoxDecoration(
-                        color: Colors.yellow[700],
+                        color: Colors.yellow[500],
                         shape: BoxShape.circle,
                       ),
-                      child: Icon(
-                        Icons.shopping_bag_outlined,
-                        color: Colors.grey[900],
-                        size: 20,
-                      ),
+                      child: Image.asset("assets/icons/Bag.png"),
                     ),
                   ),
                 ],

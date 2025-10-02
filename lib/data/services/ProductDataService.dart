@@ -9,7 +9,7 @@ class ProductDataService {
       category: 'Women\'s wear',
       price: 25.00,
       imageUrl: 'assets/modelGirl1.png',
-      isFavorite: true,
+      isFavorite: false,
     ),
     Product(
       id: '2',
@@ -17,7 +17,7 @@ class ProductDataService {
       category: 'Women\'s wear',
       price: 45.00,
       imageUrl: 'assets/modelGirl2.png',
-      isFavorite: true,
+      isFavorite: false,
     ),
     Product(
       id: '3',
@@ -50,7 +50,7 @@ class ProductDataService {
       category: 'Women\'s wear',
       price: 26.00,
       imageUrl: 'assets/girl_h1.png',
-      isFavorite: true,
+      isFavorite: false,
     ),
     Product(
       id: '7',
@@ -66,7 +66,7 @@ class ProductDataService {
       category: 'Women\'s wear',
       price: 22.00,
       imageUrl: 'assets/modelGirl3.png',
-      isFavorite: true,
+      isFavorite: false,
     ),
     Product(
       id: '9',
@@ -82,7 +82,7 @@ class ProductDataService {
       category: 'Men\'s wear',
       price: 28.00,
       imageUrl: 'assets/girl_h1.png',
-      isFavorite: true,
+      isFavorite: false,
     ),
     Product(
       id: '11',
