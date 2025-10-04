@@ -1,5 +1,6 @@
 import 'package:e_commerce/Ui/screens/search/SearchInputScreen.dart';
 import 'package:e_commerce/Ui/screens/search/SearchResultsScreen.dart';
+import 'package:e_commerce/Ui/screens/search/ScanScreen.dart';
 import 'package:e_commerce/Ui/widgets/appbarCustomWidget.dart';
 import 'package:e_commerce/Ui/widgets/category/HorizontalProductCardList.dart';
 import 'package:e_commerce/Ui/widgets/category/HorizontalProductList.dart';
@@ -59,7 +60,11 @@ class _SearchScreenState extends State<SearchScreen> {
                     SizedBox(width: 5),
                     ScanWidget(
                       onTap: () {
-                        print("Scan");
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (context) => const ScanScreen(),
+                          ),
+                        );
                       },
                     ),
                   ],
