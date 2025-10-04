@@ -8,6 +8,7 @@ class ProductCardHorizontal extends StatelessWidget {
   final bool isFavorite;
   final VoidCallback? onFavoritePressed;
   final VoidCallback? onCardPressed;
+  final VoidCallback? onAddToCart;
   final double? width;
   final double? height;
 
@@ -20,6 +21,7 @@ class ProductCardHorizontal extends StatelessWidget {
     this.isFavorite = true,
     this.onFavoritePressed,
     this.onCardPressed,
+    this.onAddToCart,
     this.width,
     this.height,
   });
@@ -82,14 +84,34 @@ class ProductCardHorizontal extends StatelessWidget {
                         color: Colors.white70,
                       ),
                     ),
-                    // Price and Favorite Button Row
-                    Text(
-                      '\$${price.toStringAsFixed(2)}',
-                      style: const TextStyle(
-                        fontSize: 15,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
-                      ),
+                    // Price and Cart Button Row
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          '\$${price.toStringAsFixed(2)}',
+                          style: const TextStyle(
+                            fontSize: 15,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                          ),
+                        ),
+                        GestureDetector(
+                          onTap: onAddToCart,
+                          child: Container(
+                            padding: const EdgeInsets.all(4),
+                            decoration: BoxDecoration(
+                              color: Colors.yellow[500],
+                              shape: BoxShape.circle,
+                            ),
+                            child: Image.asset(
+                              "assets/icons/Bag.png",
+                              width: 16,
+                              height: 16,
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
                   ],
                 ),

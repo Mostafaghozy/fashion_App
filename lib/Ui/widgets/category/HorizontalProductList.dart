@@ -5,11 +5,13 @@ import 'package:flutter/material.dart';
 class HorizontalProductList extends StatefulWidget {
   final List<Product> products;
   final Function(String) onToggleFavorite;
+  final Function(String)? onAddToCart;
 
   const HorizontalProductList({
     Key? key,
     required this.products,
     required this.onToggleFavorite,
+    this.onAddToCart,
   }) : super(key: key);
 
   @override
@@ -42,6 +44,7 @@ class _HorizontalProductListState extends State<HorizontalProductList> {
                   SnackBar(content: Text('Opening ${product.title}')),
                 );
               },
+              onAddToCart: () => widget.onAddToCart?.call(product.title),
             ),
           );
         },

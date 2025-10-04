@@ -1,3 +1,5 @@
+import 'package:e_commerce/Ui/widgets/HomeFilterSheet.dart';
+import 'package:e_commerce/Ui/widgets/category/SortBySheet.dart';
 import 'package:flutter/material.dart';
 
 typedef VoidIntCallback = void Function();
@@ -18,7 +20,14 @@ class SortFilterBar extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             GestureDetector(
-              onTap: onSort,
+              onTap: () {
+                showModalBottomSheet(
+                  context: context,
+                  isScrollControlled: true,
+                  backgroundColor: Colors.transparent,
+                  builder: (ctx) => const SortBySheet(),
+                );
+              },
               child: Row(
                 children: [
                   Image.asset('assets/icons/activity.png'),
@@ -29,7 +38,14 @@ class SortFilterBar extends StatelessWidget {
             ),
             const SizedBox(width: 150),
             GestureDetector(
-              onTap: onFilter,
+              onTap: () {
+                showModalBottomSheet(
+                  context: context,
+                  isScrollControlled: true,
+                  backgroundColor: Colors.transparent,
+                  builder: (ctx) => const HomeFilterSheet(), //filterSheet
+                );
+              },
               child: Row(
                 children: [
                   Image.asset('assets/icons/filter.png'),

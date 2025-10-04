@@ -7,6 +7,7 @@ class ProductCard extends StatelessWidget {
   final bool isFavorite;
   final VoidCallback? onFavoritePressed;
   final VoidCallback? onCardPressed;
+  final VoidCallback? onAddToCart;
   final double? width;
   final double? height;
 
@@ -18,6 +19,7 @@ class ProductCard extends StatelessWidget {
     this.isFavorite = true,
     this.onFavoritePressed,
     this.onCardPressed,
+    this.onAddToCart,
     this.width,
     this.height,
   });
@@ -79,13 +81,16 @@ class ProductCard extends StatelessWidget {
                   Positioned(
                     bottom: 8,
                     right: 8,
-                    child: Container(
-                      padding: const EdgeInsets.all(6),
-                      decoration: BoxDecoration(
-                        color: Colors.yellow[500],
-                        shape: BoxShape.circle,
+                    child: GestureDetector(
+                      onTap: onAddToCart,
+                      child: Container(
+                        padding: const EdgeInsets.all(6),
+                        decoration: BoxDecoration(
+                          color: Colors.yellow[500],
+                          shape: BoxShape.circle,
+                        ),
+                        child: Image.asset("assets/icons/Bag.png"),
                       ),
-                      child: Image.asset("assets/icons/Bag.png"),
                     ),
                   ),
                 ],

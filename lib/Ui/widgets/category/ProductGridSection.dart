@@ -6,12 +6,14 @@ class ProductGridSection extends StatelessWidget {
   final List<Product> products;
   final Function(String) onToggleFavorite;
   final Function(Product) onCardPressed;
+  final Function(String)? onAddToCart;
 
   const ProductGridSection({
     Key? key,
     required this.products,
     required this.onToggleFavorite,
     required this.onCardPressed,
+    this.onAddToCart,
   }) : super(key: key);
 
   @override
@@ -69,6 +71,7 @@ class ProductGridSection extends StatelessWidget {
           isFavorite: product.isFavorite,
           onFavoritePressed: () => onToggleFavorite(product.id),
           onCardPressed: () => onCardPressed(product),
+          onAddToCart: () => onAddToCart?.call(product.title),
         ),
       ),
     );

@@ -1,13 +1,12 @@
 import 'package:e_commerce/Ui/screens/home/MainScreen.dart';
-import 'package:e_commerce/Ui/screens/search/SearchScreen.dart';
 import 'package:e_commerce/Ui/widgets/CustomBottomNavBar.dart';
 import 'package:e_commerce/Ui/widgets/category/HorizontalProductCardList.dart';
 import 'package:e_commerce/Ui/widgets/category/HorizontalProductList.dart';
 import 'package:e_commerce/Ui/widgets/category/ProductGridSection.dart';
 import 'package:e_commerce/Ui/widgets/appbarCustomWidget.dart';
+import 'package:e_commerce/Ui/widgets/CartNotificationBottomSheet.dart';
 import 'package:e_commerce/data/services/ProductDataService.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import '../../widgets/category/section_title.dart';
 import '../../widgets/category/category_item.dart';
 import '../../widgets/category/category_list.dart';
@@ -28,6 +27,28 @@ class _AllProductScreenState extends State<AllProductScreen> {
     setState(() {
       ProductDataService.toggleFavorite(productId);
     });
+  }
+
+  void addToCart(String productName) {
+    // Here you can add your cart logic
+    // For now, we'll just show the notification
+    CartNotificationBottomSheet.show(
+      context,
+      productName: productName,
+      onViewCart: () {
+        // Navigate to cart screen (index 2 in bottom nav)
+        Navigator.of(context).pushAndRemoveUntil(
+          MaterialPageRoute(builder: (context) => MainScreen(initialIndex: 2)),
+          (route) => false,
+        );
+      },
+      onCheckOrder: () {
+        // Navigate to orders or profile screen
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('Check order functionality')),
+        );
+      },
+    );
   }
 
   @override
@@ -90,6 +111,7 @@ class _AllProductScreenState extends State<AllProductScreen> {
                     : HorizontalProductList(
                         products: ProductDataService.getFavoriteProducts(),
                         onToggleFavorite: toggleFavorite,
+                        onAddToCart: addToCart,
                       ),
                 const SizedBox(height: 18),
 
@@ -102,6 +124,7 @@ class _AllProductScreenState extends State<AllProductScreen> {
                       SnackBar(content: Text('Opening ${product.title}')),
                     );
                   },
+                  onAddToCart: addToCart,
                 ),
 
                 SizedBox(height: 0.5),
@@ -113,6 +136,7 @@ class _AllProductScreenState extends State<AllProductScreen> {
                       SnackBar(content: Text('Opening ${product.title}')),
                     );
                   },
+                  onAddToCart: addToCart,
                 ),
                 const SizedBox(height: 15),
 
@@ -145,6 +169,7 @@ class _AllProductScreenState extends State<AllProductScreen> {
                     : HorizontalProductList(
                         products: ProductDataService.getFavoriteProducts(),
                         onToggleFavorite: toggleFavorite,
+                        onAddToCart: addToCart,
                       ),
                 const SizedBox(height: 15),
 
@@ -158,6 +183,7 @@ class _AllProductScreenState extends State<AllProductScreen> {
                       SnackBar(content: Text('Opening ${product.title}')),
                     );
                   },
+                  onAddToCart: addToCart,
                 ),
                 const SizedBox(height: 20),
                 SortFilterBar(
@@ -174,13 +200,13 @@ class _AllProductScreenState extends State<AllProductScreen> {
         ),
       ),
       bottomNavigationBar: CustomBottomNavBar(
-        currentIndex: 0,
+        currentIndex: 1,
         onTap: (index) {
-          Navigator.pushReplacement(
-            context,
+          Navigator.of(context).pushAndRemoveUntil(
             MaterialPageRoute(
               builder: (context) => MainScreen(initialIndex: index),
             ),
+            (route) => false,
           );
         },
       ),

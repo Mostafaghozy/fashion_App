@@ -207,4 +207,24 @@ class ProductDataService {
   static List<Product> getAllProducts() {
     return List.from(_allProducts);
   }
+
+  // Search products by query
+  static List<Product> searchProducts(String query) {
+    if (query.isEmpty) return [];
+
+    final lowercaseQuery = query.toLowerCase();
+    return _allProducts.where((product) {
+      return product.title.toLowerCase().contains(lowercaseQuery) ||
+          product.category.toLowerCase().contains(lowercaseQuery);
+    }).toList();
+  }
+
+  // Get products by category
+  static List<Product> getProductsByCategory(String category) {
+    return _allProducts
+        .where(
+          (product) => product.category.toLowerCase() == category.toLowerCase(),
+        )
+        .toList();
+  }
 }

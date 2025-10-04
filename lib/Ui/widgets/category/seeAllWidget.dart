@@ -10,9 +10,7 @@ Row seeAllWidget({
       Text(text1, style: TextStyle(fontWeight: FontWeight.bold)),
       Spacer(),
       GestureDetector(
-        onTap: () {
-          VoidCallback;
-        },
+        onTap: onTap,
         child: Row(
           children: [
             Text(text2),

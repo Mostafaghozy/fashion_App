@@ -1,4 +1,5 @@
-import 'package:e_commerce/Ui/screens/home/home_catalog_screen.dart';
+import 'package:e_commerce/Ui/screens/home/AllProductScreen.dart';
+import 'package:e_commerce/Ui/screens/home/MainScreen.dart';
 import 'package:e_commerce/Ui/widgets/CollectionsFilterBar.dart';
 import 'package:e_commerce/Ui/widgets/ContainerCustomWidget.dart';
 import 'package:e_commerce/Ui/widgets/category/HorizontalProductList.dart';
@@ -7,8 +8,8 @@ import 'package:e_commerce/Ui/widgets/category/ProductGridSection.dart';
 import 'package:e_commerce/Ui/widgets/WelcomeHeader.dart';
 import 'package:e_commerce/Ui/widgets/appbarCustomWidget.dart';
 import 'package:e_commerce/Ui/widgets/category/seeAllWidget.dart';
+import 'package:e_commerce/Ui/widgets/CartNotificationBottomSheet.dart';
 import 'package:e_commerce/data/services/ProductDataService.dart';
-import 'package:e_commerce/data/model/productModel.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -23,6 +24,28 @@ class _HomeScreenState extends State<HomeScreen> {
     setState(() {
       ProductDataService.toggleFavorite(productId);
     });
+  }
+
+  void addToCart(String productName) {
+    // Show the cart notification
+    CartNotificationBottomSheet.show(
+      context,
+      productName: productName,
+      onViewCart: () {
+        // Navigate to cart screen (index 2 in bottom nav)
+        // We need to navigate to MainScreen and set the cart tab
+        Navigator.of(context).pushAndRemoveUntil(
+          MaterialPageRoute(builder: (context) => MainScreen(initialIndex: 2)),
+          (route) => false,
+        );
+      },
+      onCheckOrder: () {
+        // Navigate to orders or profile screen
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('Check order functionality')),
+        );
+      },
+    );
   }
 
   @override
@@ -70,6 +93,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   : HorizontalProductList(
                       products: ProductDataService.getFavoriteProducts(),
                       onToggleFavorite: toggleFavorite,
+                      onAddToCart: addToCart,
                     ),
               SizedBox(height: 20),
               seeAllWidget(text1: 'New arrivals', text2: 'See all'),
@@ -83,6 +107,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     SnackBar(content: Text('Opening ${product.title}')),
                   );
                 },
+                onAddToCart: addToCart,
               ),
 
               SizedBox(height: 2),
@@ -95,6 +120,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     SnackBar(content: Text('Opening ${product.title}')),
                   );
                 },
+                onAddToCart: addToCart,
               ),
               SizedBox(height: 20),
               seeAllWidget(
@@ -121,6 +147,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     SnackBar(content: Text('Opening ${product.title}')),
                   );
                 },
+                onAddToCart: addToCart,
               ),
 
               // Add more sections here if needed

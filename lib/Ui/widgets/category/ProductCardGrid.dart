@@ -8,6 +8,7 @@ class ProductCardGrid extends StatelessWidget {
   final bool isFavorite;
   final VoidCallback? onFavoritePressed;
   final VoidCallback? onCardPressed;
+  final VoidCallback? onAddToCart;
 
   const ProductCardGrid({
     super.key,
@@ -18,6 +19,7 @@ class ProductCardGrid extends StatelessWidget {
     this.isFavorite = false,
     this.onFavoritePressed,
     this.onCardPressed,
+    this.onAddToCart,
   });
 
   @override
@@ -138,13 +140,16 @@ class ProductCardGrid extends StatelessWidget {
                             color: Colors.white,
                           ),
                         ),
-                        Container(
-                          padding: const EdgeInsets.all(4),
-                          decoration: BoxDecoration(
-                            color: Colors.yellow[500],
-                            shape: BoxShape.circle,
+                        GestureDetector(
+                          onTap: onAddToCart,
+                          child: Container(
+                            padding: const EdgeInsets.all(4),
+                            decoration: BoxDecoration(
+                              color: Colors.yellow[500],
+                              shape: BoxShape.circle,
+                            ),
+                            child: Image.asset("assets/icons/Bag.png"),
                           ),
-                          child: Image.asset("assets/icons/Bag.png"),
                         ),
                       ],
                     ),

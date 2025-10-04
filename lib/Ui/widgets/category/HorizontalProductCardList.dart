@@ -5,11 +5,13 @@ import 'package:flutter/material.dart';
 class HorizontalProductCardList extends StatelessWidget {
   final List<Product> products;
   final Function(Product) onCardPressed;
+  final Function(String)? onAddToCart;
 
   const HorizontalProductCardList({
     super.key,
     required this.products,
     required this.onCardPressed,
+    this.onAddToCart,
   });
 
   @override
@@ -34,6 +36,7 @@ class HorizontalProductCardList extends StatelessWidget {
               width: 350,
               height: 100,
               onCardPressed: () => onCardPressed(product),
+              onAddToCart: () => onAddToCart?.call(product.title),
             ),
           );
         },
