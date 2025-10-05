@@ -1,5 +1,6 @@
 import 'package:e_commerce/Ui/screens/home/MainScreen.dart';
 import 'package:e_commerce/Ui/screens/search/SearchScreen.dart';
+import 'package:e_commerce/Ui/widgets/category/ProductDetails.dart';
 import 'package:e_commerce/core/theme.dart';
 import 'package:flutter/material.dart';
 
@@ -22,7 +23,7 @@ class MyApp extends StatelessWidget {
       themeMode: ThemeMode.system,
       theme: AppThemes.light,
       darkTheme: AppThemes.dark,
-      home: const SearchScreen(),
+      home: const ProductDetails(),
     );
   }
 }
