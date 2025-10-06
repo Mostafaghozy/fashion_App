@@ -1,3 +1,4 @@
+import 'package:e_commerce/Ui/screens/home/AllProductScreen.dart';
 import 'package:e_commerce/Ui/screens/home/MainScreen.dart';
 import 'package:e_commerce/Ui/screens/search/SearchScreen.dart';
 import 'package:e_commerce/Ui/widgets/category/ProductDetails.dart';
@@ -23,7 +24,7 @@ class MyApp extends StatelessWidget {
       themeMode: ThemeMode.system,
       theme: AppThemes.light,
       darkTheme: AppThemes.dark,
-      home: const ProductDetails(),
+      home: const AllProductScreen(),
     );
   }
 }

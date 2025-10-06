@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 
 class ProductDetails extends StatefulWidget {
   const ProductDetails({super.key});
@@ -14,10 +13,10 @@ class _ProductDetailsState extends State<ProductDetails> {
   String selectedSize = "S";
 
   final List<Color> colors = [
-    const Color(0xFFF1F5D8),
-    const Color(0xFFFBEAD1),
-    const Color(0xFFCFE7F5),
-    const Color(0xFFD4EAC4),
+    const Color.fromARGB(255, 207, 218, 135),
+    const Color.fromRGBO(243, 167, 167, 1),
+    const Color.fromRGBO(156, 196, 219, 1),
+    const Color.fromARGB(255, 160, 230, 111),
     const Color(0xFFA8A055),
   ];
 
@@ -32,17 +31,12 @@ class _ProductDetailsState extends State<ProductDetails> {
           Positioned(
             top: 50,
             left: 0,
-            right: 0,
+            right: 5,
             child: Center(
-              child: Image.asset(
-                'assets/all_product/m.png',
-                // ارتفاع مناسب
-                fit: BoxFit.cover,
-              ),
+              child: Image.asset('assets/all_product/m.png', fit: BoxFit.cover),
             ),
           ),
 
-          // 🔹 AppBar فوق الصورة
           Positioned(
             top: 40,
             left: 16,
@@ -53,7 +47,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                 IconButton(
                   icon: const Icon(
                     Icons.arrow_back,
-                    color: Colors.black,
+                    color: Colors.black54,
                     size: 28,
                   ),
                   onPressed: () {},
@@ -61,7 +55,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                 IconButton(
                   icon: const Icon(
                     Icons.favorite_border,
-                    color: Colors.black,
+                    color: Colors.black54,
                     size: 28,
                   ),
                   onPressed: () {},
@@ -70,7 +64,6 @@ class _ProductDetailsState extends State<ProductDetails> {
             ),
           ),
 
-          // 🧱 الـ Container البيج فوق جزء من الصورة
           Positioned(
             bottom: 0,
             left: 0,
@@ -88,7 +81,6 @@ class _ProductDetailsState extends State<ProductDetails> {
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  // 📝 العنوان والسعر
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: const [
@@ -128,9 +120,9 @@ class _ProductDetailsState extends State<ProductDetails> {
                   ),
                   const SizedBox(height: 10),
 
-                  // 🎨 الألوان
                   Row(
                     children: List.generate(colors.length, (index) {
+                      final bool isSelected = selectedColorIndex == index;
                       return GestureDetector(
                         onTap: () {
                           setState(() {
@@ -138,19 +130,36 @@ class _ProductDetailsState extends State<ProductDetails> {
                           });
                         },
                         child: Container(
-                          margin: const EdgeInsets.only(right: 10),
-                          width: 28,
-                          height: 28,
+                          margin: const EdgeInsets.only(right: 12),
+                          width: 30,
+                          height: 30,
                           decoration: BoxDecoration(
                             shape: BoxShape.circle,
-                            color: colors[index],
+                            color: isSelected
+                                ? colors[index]
+                                : colors[index].withOpacity(0.8),
+                            boxShadow: isSelected
+                                ? [
+                                    BoxShadow(
+                                      color: Colors.black.withOpacity(0.30),
+                                      blurRadius: 10,
+                                      spreadRadius: 5,
+                                    ),
+                                  ]
+                                : [],
+
                             border: Border.all(
-                              color: selectedColorIndex == index
-                                  ? Colors.black
-                                  : Colors.transparent,
+                              color: Colors.transparent,
                               width: 2,
                             ),
                           ),
+                          child: selectedColorIndex == index
+                              ? const Icon(
+                                  Icons.check,
+                                  color: Colors.black,
+                                  size: 20,
+                                )
+                              : null,
                         ),
                       );
                     }),
@@ -184,7 +193,9 @@ class _ProductDetailsState extends State<ProductDetails> {
                           ),
                           decoration: BoxDecoration(
                             border: Border.all(
-                              color: isSelected ? Colors.black : Colors.grey,
+                              color: isSelected
+                                  ? Colors.black
+                                  : Colors.transparent,
                             ),
                             borderRadius: BorderRadius.circular(80),
                             color: isSelected ? Colors.black : Colors.white,
@@ -203,27 +214,43 @@ class _ProductDetailsState extends State<ProductDetails> {
 
                   const SizedBox(height: 20),
 
-                  // 🛒 زر إضافة للسلة + العداد
                   Row(
                     children: [
                       Container(
+                        padding: const EdgeInsets.symmetric(horizontal: 8),
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(12),
-                          border: Border.all(color: Colors.black12),
+                          border: Border.all(color: Colors.transparent),
                         ),
                         child: Row(
                           children: [
-                            IconButton(
-                              icon: const Icon(
-                                Icons.remove,
-                                color: Colors.black,
-                              ),
-                              onPressed: () {
+                            GestureDetector(
+                              onTap: () {
                                 if (quantity > 1) {
                                   setState(() => quantity--);
                                 }
                               },
+                              child: Container(
+                                width: 30,
+                                height: 30,
+                                decoration: BoxDecoration(
+                                  color: Colors.transparent,
+                                  borderRadius: BorderRadius.circular(8),
+                                  border: Border.all(
+                                    width: 2,
+                                    color: Colors.black,
+                                  ),
+                                ),
+                                child: const Icon(
+                                  Icons.remove,
+                                  size: 18,
+                                  color: Colors.black45,
+                                ),
+                              ),
                             ),
+
+                            const SizedBox(width: 12),
+
                             Text(
                               quantity.toString(),
                               style: const TextStyle(
@@ -232,43 +259,63 @@ class _ProductDetailsState extends State<ProductDetails> {
                                 color: Colors.black,
                               ),
                             ),
-                            IconButton(
-                              icon: const Icon(Icons.add, color: Colors.black),
-                              onPressed: () {
+
+                            const SizedBox(width: 12),
+
+                            GestureDetector(
+                              onTap: () {
                                 setState(() => quantity++);
                               },
+                              child: Container(
+                                width: 30,
+                                height: 30,
+                                decoration: BoxDecoration(
+                                  color: Colors.transparent,
+                                  borderRadius: BorderRadius.circular(8),
+                                  border: Border.all(
+                                    width: 2,
+                                    color: Colors.black,
+                                  ),
+                                ),
+                                child: const Icon(
+                                  Icons.add,
+                                  size: 18,
+                                  color: Colors.black45,
+                                ),
+                              ),
                             ),
                           ],
                         ),
                       ),
+
                       const SizedBox(width: 16),
 
-                      // 🔘 زر السلة
-                      Expanded(
-                        child: ElevatedButton(
-                          onPressed: () {},
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.black,
-                            padding: const EdgeInsets.symmetric(vertical: 16),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(12),
-                            ),
+                      ElevatedButton(
+                        onPressed: () {},
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.black,
+                          padding: const EdgeInsets.symmetric(
+                            vertical: 12,
+                            horizontal: 55,
                           ),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Image.asset("assets/icons/Bag3.png", height: 22),
-                              const SizedBox(width: 10),
-                              const Text(
-                                "Add to cart",
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.bold,
-                                ),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(12),
+                          ),
+                        ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Image.asset("assets/icons/Bag3.png", height: 22),
+                            const SizedBox(width: 10),
+                            const Text(
+                              "Add to cart",
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
                               ),
-                            ],
-                          ),
+                            ),
+                          ],
                         ),
                       ),
                     ],

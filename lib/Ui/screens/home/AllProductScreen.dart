@@ -36,7 +36,6 @@ class _AllProductScreenState extends State<AllProductScreen> {
       context,
       productName: productName,
       onViewCart: () {
-        // Navigate to cart screen (index 2 in bottom nav)
         Navigator.of(context).pushAndRemoveUntil(
           MaterialPageRoute(builder: (context) => MainScreen(initialIndex: 2)),
           (route) => false,
