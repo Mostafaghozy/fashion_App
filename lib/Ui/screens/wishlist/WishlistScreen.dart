@@ -1,35 +1,105 @@
 import 'package:flutter/material.dart';
 
 class WishlistScreen extends StatelessWidget {
-  const WishlistScreen({Key? key}) : super(key: key);
+  const WishlistScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+
     return Scaffold(
+      backgroundColor: Colors.black,
       appBar: AppBar(
-        title: Text('Wishlist'),
-        backgroundColor: Colors.white,
-        foregroundColor: Colors.black,
+        backgroundColor: Colors.black,
         elevation: 0,
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back_outlined, size: 20),
+          onPressed: () => Navigator.pop(context),
+        ),
       ),
-      body: Center(
+
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 16),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Icon(Icons.favorite, size: 80, color: Colors.grey[400]),
-            SizedBox(height: 20),
-            Text(
-              'Your Wishlist',
-              style: TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-                color: Colors.grey[600],
+            Row(
+              children: [
+                const Text(
+                  'Wishlist',
+                  style: TextStyle(
+                    fontSize: 25,
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                const Spacer(),
+                Row(
+                  children: [
+                    const Text(
+                      "Recently added",
+                      style: TextStyle(color: Colors.white, fontSize: 14),
+                    ),
+                    IconButton(
+                      onPressed: () {},
+                      icon: const Icon(
+                        Icons.keyboard_arrow_down,
+                        color: Colors.white70,
+                        size: 30,
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+
+            Expanded(
+              child: Center(
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: const [
+                    Icon(Icons.favorite_border, color: Colors.white, size: 80),
+                    SizedBox(height: 16),
+                    Text(
+                      "Wishlist is empty",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    SizedBox(height: 8),
+                    Text(
+                      "You don't have any products in the wishlist yet.",
+                      style: TextStyle(color: Colors.white70, fontSize: 14),
+                      textAlign: TextAlign.center,
+                    ),
+                  ],
+                ),
               ),
             ),
-            SizedBox(height: 10),
-            Text(
-              'Save items you love',
-              style: TextStyle(fontSize: 16, color: Colors.grey[500]),
+
+            Padding(
+              padding: const EdgeInsets.only(bottom: 16),
+              child: ElevatedButton.icon(
+                onPressed: () {},
+                icon: const Icon(Icons.arrow_back, color: Colors.black),
+                label: const Text(
+                  "Return to shop",
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.white,
+                  minimumSize: Size(size.width, 50),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  elevation: 0,
+                ),
+              ),
             ),
           ],
         ),

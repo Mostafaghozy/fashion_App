@@ -5,31 +5,80 @@ class CartScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+
     return Scaffold(
+      backgroundColor: Colors.black,
       appBar: AppBar(
-        title: Text('Cart'),
-        backgroundColor: Colors.white,
-        foregroundColor: Colors.black,
+        backgroundColor: Colors.black,
         elevation: 0,
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back_outlined, size: 20),
+          onPressed: () => Navigator.pop(context),
+        ),
       ),
-      body: Center(
+
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 16),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Icon(Icons.shopping_cart, size: 80, color: Colors.grey[400]),
-            SizedBox(height: 20),
-            Text(
-              'Your Cart',
+            const Text(
+              'My cart',
               style: TextStyle(
-                fontSize: 24,
+                fontSize: 25,
+                color: Colors.white,
                 fontWeight: FontWeight.bold,
-                color: Colors.grey[600],
               ),
             ),
-            SizedBox(height: 10),
-            Text(
-              'Add items to get started',
-              style: TextStyle(fontSize: 16, color: Colors.grey[500]),
+
+            Expanded(
+              child: Center(
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Image.asset("assets/Bag2.png"),
+                    SizedBox(height: 16),
+                    Text(
+                      "My cart is empty",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    SizedBox(height: 8),
+                    Text(
+                      "You don't have any products in the cart yet.",
+                      style: TextStyle(color: Colors.white70, fontSize: 14),
+                      textAlign: TextAlign.center,
+                    ),
+                  ],
+                ),
+              ),
+            ),
+
+            Padding(
+              padding: const EdgeInsets.only(bottom: 16),
+              child: ElevatedButton.icon(
+                onPressed: () {},
+                icon: const Icon(Icons.arrow_back, color: Colors.black),
+                label: const Text(
+                  "Return to shop",
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.white,
+                  minimumSize: Size(size.width, 50),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  elevation: 0,
+                ),
+              ),
             ),
           ],
         ),
