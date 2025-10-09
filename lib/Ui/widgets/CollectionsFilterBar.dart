@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:e_commerce/Ui/widgets/HomeFilterSheet.dart';
+import 'package:flutter/material.dart';
 
 class CollectionsFilterBar extends StatefulWidget {
   const CollectionsFilterBar({super.key});

@@ -1,10 +1,11 @@
-import 'package:e_commerce/Ui/screens/home/MainScreen.dart';
 import 'package:e_commerce/Ui/widgets/CustomBottomNavBar.dart';
 import 'package:e_commerce/Ui/widgets/order/CustomButtonOrderInfo.dart';
 import 'package:e_commerce/Ui/widgets/order/buildDeliveryInfo.dart';
 import 'package:e_commerce/Ui/widgets/order/buildOrderInfo.dart';
 import 'package:e_commerce/Ui/widgets/order/buildPaymentInfo.dart';
 import 'package:e_commerce/Ui/widgets/order/buildProductItem.dart';
+import 'package:e_commerce/presentation/screens/home/MainScreen.dart';
+
 import 'package:flutter/material.dart';
 
 class OrderDetailsScreen extends StatelessWidget {

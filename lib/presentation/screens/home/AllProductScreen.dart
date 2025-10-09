@@ -1,16 +1,17 @@
-import 'package:e_commerce/Ui/screens/home/MainScreen.dart';
+import 'package:e_commerce/Ui/widgets/CartNotificationBottomSheet.dart';
 import 'package:e_commerce/Ui/widgets/CustomBottomNavBar.dart';
+import 'package:e_commerce/Ui/widgets/appbarCustomWidget.dart';
 import 'package:e_commerce/Ui/widgets/category/HorizontalProductCardList.dart';
 import 'package:e_commerce/Ui/widgets/category/HorizontalProductList.dart';
 import 'package:e_commerce/Ui/widgets/category/ProductGridSection.dart';
-import 'package:e_commerce/Ui/widgets/appbarCustomWidget.dart';
-import 'package:e_commerce/Ui/widgets/CartNotificationBottomSheet.dart';
-import 'package:e_commerce/data/services/ProductDataService.dart';
+import 'package:e_commerce/Ui/widgets/category/category_item.dart';
+import 'package:e_commerce/Ui/widgets/category/category_list.dart';
+import 'package:e_commerce/Ui/widgets/category/section_title.dart';
+import 'package:e_commerce/Ui/widgets/category/sort_filter_bar.dart';
+import 'package:e_commerce/presentation/screens/home/MainScreen.dart';
+
+import 'package:e_commerce/features/data/services/ProductDataService.dart';
 import 'package:flutter/material.dart';
-import '../../widgets/category/section_title.dart';
-import '../../widgets/category/category_item.dart';
-import '../../widgets/category/category_list.dart';
-import '../../widgets/category/sort_filter_bar.dart';
 
 class AllProductScreen extends StatefulWidget {
   const AllProductScreen({super.key, List<String>? images})

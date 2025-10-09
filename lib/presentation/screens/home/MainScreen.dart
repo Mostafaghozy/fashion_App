@@ -1,9 +1,10 @@
-import 'package:e_commerce/Ui/screens/home/homeScreen.dart';
-import 'package:e_commerce/Ui/screens/search/SearchScreen.dart';
-import 'package:e_commerce/Ui/screens/cart/CartScreen.dart';
-import 'package:e_commerce/Ui/screens/wishlist/WishlistScreen.dart';
-import 'package:e_commerce/Ui/screens/notification/NotificationScreen.dart';
 import 'package:e_commerce/Ui/widgets/CustomBottomNavBar.dart';
+import 'package:e_commerce/presentation/screens/home/homeScreen.dart';
+import 'package:e_commerce/presentation/screens/search/SearchScreen.dart';
+import 'package:e_commerce/presentation/screens/cart/CartScreen.dart';
+import 'package:e_commerce/presentation/screens/wishlist/WishlistScreen.dart';
+import 'package:e_commerce/presentation/screens/notification/NotificationScreen.dart';
+
 import 'package:flutter/material.dart';
 
 class MainScreen extends StatefulWidget {

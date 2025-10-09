@@ -1,5 +1,6 @@
-import 'package:e_commerce/Ui/screens/home/MainScreen.dart';
 import 'package:e_commerce/Ui/widgets/CustomBottomNavBar.dart';
+import 'package:e_commerce/presentation/screens/home/MainScreen.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_credit_card/flutter_credit_card.dart';
 

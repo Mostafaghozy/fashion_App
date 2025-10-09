@@ -1,5 +1,5 @@
-import 'package:e_commerce/Ui/screens/payment/PaymentScreen.dart';
 import 'package:e_commerce/Ui/widgets/payment/PaymentMethodCard.dart';
+import 'package:e_commerce/presentation/screens/payment/PaymentScreen.dart';
 import 'package:flutter/material.dart';
 
 class PaymentMethodsPage extends StatelessWidget {

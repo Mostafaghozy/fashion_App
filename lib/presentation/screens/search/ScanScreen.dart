@@ -1,5 +1,5 @@
 import 'package:camera/camera.dart';
-import 'package:e_commerce/Ui/screens/search/SearchResultsScreen.dart';
+import 'package:e_commerce/presentation/screens/search/SearchResultsScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:permission_handler/permission_handler.dart';
 

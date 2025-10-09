@@ -1,11 +1,12 @@
-import 'package:e_commerce/Ui/screens/home/MainScreen.dart';
 import 'package:e_commerce/Ui/widgets/CustomBottomNavBar.dart';
 import 'package:e_commerce/Ui/widgets/appbarCustomWidget.dart';
 import 'package:e_commerce/Ui/widgets/category/HorizontalProductList.dart';
 import 'package:e_commerce/Ui/widgets/category/ProductCardGrid.dart';
-import 'package:e_commerce/Ui/widgets/category/sort_filter_bar.dart';
 import 'package:e_commerce/Ui/widgets/category/SortBySheet.dart';
-import 'package:e_commerce/data/services/ProductDataService.dart';
+import 'package:e_commerce/Ui/widgets/category/sort_filter_bar.dart';
+import 'package:e_commerce/presentation/screens/home/MainScreen.dart';
+
+import 'package:e_commerce/features/data/services/ProductDataService.dart';
 import 'package:flutter/material.dart';
 
 class SearchResultsScreen extends StatefulWidget {

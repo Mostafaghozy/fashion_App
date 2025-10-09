@@ -1,5 +1,5 @@
-import 'package:e_commerce/Ui/screens/auth/authScreen.dart';
 import 'package:e_commerce/Ui/widgets/imageCustom.dart';
+import 'package:e_commerce/presentation/screens/auth/authScreen.dart';
 import 'package:flutter/material.dart';
 
 class AnimationScreen extends StatefulWidget {

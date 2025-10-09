@@ -1,14 +1,14 @@
-import 'package:e_commerce/Ui/screens/auth/confirmScreen.dart';
+import 'package:e_commerce/presentation/screens/auth/confirmScreen.dart';
 import 'package:flutter/material.dart';
 
-class LogInScreen extends StatefulWidget {
-  const LogInScreen({super.key});
+class SignUpScreen extends StatefulWidget {
+  const SignUpScreen({super.key});
 
   @override
-  State<LogInScreen> createState() => _LogInScreenState();
+  State<SignUpScreen> createState() => _SignUpScreenState();
 }
 
-class _LogInScreenState extends State<LogInScreen> {
+class _SignUpScreenState extends State<SignUpScreen> {
   final _emailController = TextEditingController();
   bool _isEmailFilled = false;
 
@@ -31,7 +31,6 @@ class _LogInScreenState extends State<LogInScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[900],
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20.0),
@@ -48,7 +47,7 @@ class _LogInScreenState extends State<LogInScreen> {
                   onPressed: () {},
                   icon: const Icon(Icons.apple, color: Colors.black),
                   label: const Text(
-                    'Log in with Apple',
+                    'Sign up with Apple',
                     style: TextStyle(fontFamily: 'Jost-Bold.ttf'),
                   ),
                   style: ElevatedButton.styleFrom(
@@ -70,7 +69,7 @@ class _LogInScreenState extends State<LogInScreen> {
                     width: 24,
                   ), // Assuming you have a google logo asset
                   label: const Text(
-                    'Log in with Google',
+                    'Sign up with Google',
                     style: TextStyle(fontFamily: 'Jost-Bold.ttf'),
                   ),
                   style: ElevatedButton.styleFrom(
@@ -84,7 +83,7 @@ class _LogInScreenState extends State<LogInScreen> {
                 ),
                 const SizedBox(height: 40),
                 const Text(
-                  "Email",
+                  "What's your work email?",
                   style: TextStyle(
                     color: Colors.white,
                     fontFamily: 'Jost',
@@ -127,10 +126,63 @@ class _LogInScreenState extends State<LogInScreen> {
                     ),
                   ),
                   child: Text(
-                    'Continue with email',
+                    'Sign up',
                     style: TextStyle(
                       color: _isEmailFilled ? Colors.black : Colors.white,
                       fontFamily: 'Jost',
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 30),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Text(
+                      'Already use zimro? ',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontFamily: 'Jost-Bold.ttf',
+                      ),
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        // Navigate to Log in screen
+                      },
+                      child: const Text(
+                        'Log in',
+                        style: TextStyle(
+                          color: Colors.yellow,
+                          // decoration: TextDecoration.underline,
+                          fontFamily: 'Jost',
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 20),
+                Center(
+                  child: RichText(
+                    textAlign: TextAlign.center,
+                    text: const TextSpan(
+                      style: TextStyle(
+                        color: Colors.grey,
+                        fontFamily: 'Jost',
+                        fontSize: 12,
+                      ),
+                      children: [
+                        TextSpan(text: 'By signing up you accept the '),
+                        TextSpan(
+                          text: '\nTerm of service',
+                          style: TextStyle(color: Colors.yellow),
+                          // recognizer: TapGestureRecognizer()..onTap = () => launch('URL'),
+                        ),
+                        TextSpan(text: ' and '),
+                        TextSpan(
+                          text: 'Privacy Policy',
+                          style: TextStyle(color: Colors.yellow),
+                          // recognizer: TapGestureRecognizer()..onTap = () => launch('URL'),
+                        ),
+                      ],
                     ),
                   ),
                 ),

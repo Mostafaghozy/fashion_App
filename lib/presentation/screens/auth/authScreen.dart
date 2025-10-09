@@ -1,6 +1,6 @@
-import 'package:e_commerce/Ui/screens/auth/loginScreen.dart';
-import 'package:e_commerce/Ui/screens/auth/signupScreen.dart';
 import 'package:e_commerce/Ui/widgets/imageCustom.dart';
+import 'package:e_commerce/presentation/screens/auth/loginScreen.dart';
+import 'package:e_commerce/presentation/screens/auth/signupScreen.dart';
 import 'package:flutter/material.dart';
 
 class AuthScreen extends StatelessWidget {

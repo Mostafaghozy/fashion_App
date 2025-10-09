@@ -1,7 +1,7 @@
-import 'package:e_commerce/Ui/screens/home/MainScreen.dart';
 import 'package:e_commerce/Ui/widgets/CustomBottomNavBar.dart';
-import 'package:flutter/material.dart';
 import 'package:e_commerce/Ui/widgets/custom_input_field.dart';
+import 'package:e_commerce/presentation/screens/home/MainScreen.dart';
+import 'package:flutter/material.dart';
 
 class EditPersonalInfo extends StatefulWidget {
   const EditPersonalInfo({super.key});

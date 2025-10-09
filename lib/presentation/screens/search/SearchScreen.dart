@@ -1,18 +1,19 @@
-import 'package:e_commerce/Ui/screens/search/SearchInputScreen.dart';
-import 'package:e_commerce/Ui/screens/search/SearchResultsScreen.dart';
-import 'package:e_commerce/Ui/screens/search/ScanScreen.dart';
 import 'package:e_commerce/Ui/widgets/appbarCustomWidget.dart';
 import 'package:e_commerce/Ui/widgets/category/HorizontalProductCardList.dart';
 import 'package:e_commerce/Ui/widgets/category/HorizontalProductList.dart';
-import 'package:e_commerce/Ui/widgets/category/SearchWidget.dart';
+import 'package:e_commerce/Ui/widgets/category/RecentSearchWidget.dart';
 import 'package:e_commerce/Ui/widgets/category/ScanWidget.dart';
+import 'package:e_commerce/Ui/widgets/category/SearchWidget.dart';
+import 'package:e_commerce/Ui/widgets/category/category_item.dart';
 import 'package:e_commerce/Ui/widgets/category/category_list.dart';
 import 'package:e_commerce/Ui/widgets/category/section_title.dart';
-import 'package:e_commerce/Ui/widgets/category/category_item.dart';
-import 'package:e_commerce/Ui/widgets/category/RecentSearchWidget.dart';
 import 'package:e_commerce/Ui/widgets/category/sort_filter_bar.dart';
-import 'package:e_commerce/data/services/ProductDataService.dart';
-import 'package:e_commerce/data/services/SearchHistoryService.dart';
+import 'package:e_commerce/presentation/screens/search/SearchInputScreen.dart';
+import 'package:e_commerce/presentation/screens/search/SearchResultsScreen.dart';
+import 'package:e_commerce/presentation/screens/search/ScanScreen.dart';
+
+import 'package:e_commerce/features/data/services/ProductDataService.dart';
+import 'package:e_commerce/features/data/services/SearchHistoryService.dart';
 import 'package:flutter/material.dart';
 
 class SearchScreen extends StatefulWidget {
