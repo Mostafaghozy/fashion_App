@@ -1,0 +1,55 @@
+import 'package:e_commerce/features/presentation/widgets/category/ProductCardComponent.dart';
+
+import 'package:e_commerce/features/data/models/productModel.dart';
+import 'package:flutter/material.dart';
+
+class HorizontalProductList extends StatefulWidget {
+  final List<Product> products;
+  final Function(String) onToggleFavorite;
+  final Function(String)? onAddToCart;
+
+  const HorizontalProductList({
+    Key? key,
+    required this.products,
+    required this.onToggleFavorite,
+    this.onAddToCart,
+  }) : super(key: key);
+
+  @override
+  State<HorizontalProductList> createState() => _HorizontalProductListState();
+}
+
+class _HorizontalProductListState extends State<HorizontalProductList> {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 300,
+      child: ListView.builder(
+        scrollDirection: Axis.horizontal,
+        padding: EdgeInsets.symmetric(horizontal: 5),
+        itemCount: widget.products.length,
+        itemBuilder: (context, index) {
+          final product = widget.products[index];
+          return Container(
+            margin: EdgeInsets.only(right: 15),
+            child: ProductCard(
+              imageUrl: product.imageUrl,
+              title: product.title,
+              price: product.price,
+              isFavorite: product.isFavorite,
+              width: 180,
+              height: 280,
+              onFavoritePressed: () => widget.onToggleFavorite(product.id),
+              onCardPressed: () {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(content: Text('Opening ${product.title}')),
+                );
+              },
+              onAddToCart: () => widget.onAddToCart?.call(product.title),
+            ),
+          );
+        },
+      ),
+    );
+  }
+}
