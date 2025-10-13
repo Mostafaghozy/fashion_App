@@ -1,4 +1,4 @@
-import 'package:e_commerce/Ui/widgets/custom_input_field.dart';
+import 'package:e_commerce/presentation/widgets/custom_input_field.dart';
 import 'package:flutter/material.dart';
 
 class AddPayPalScreen extends StatelessWidget {

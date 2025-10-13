@@ -1,4 +1,4 @@
-import 'package:e_commerce/Ui/widgets/HomeFilterSheet.dart';
+import 'package:e_commerce/presentation/widgets/HomeFilterSheet.dart';
 import 'package:flutter/material.dart';
 
 class CollectionsFilterBar extends StatefulWidget {

@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
       themeMode: ThemeMode.system,
       theme: AppThemes.light,
       darkTheme: AppThemes.dark,
-      home: const MyOrdersScreen(),
+      home: MyOrdersScreen(),
     );
   }
 }

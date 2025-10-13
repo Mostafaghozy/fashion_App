@@ -42,6 +42,7 @@ class _MyOrdersScreenState extends State<MyOrdersScreen> {
   }
 
   Widget _buildEmptyState() {
+    final size = MediaQuery.of(context).size;
     return Container(
       key: const ValueKey('empty_state'),
       color: Colors.black,
@@ -49,16 +50,8 @@ class _MyOrdersScreenState extends State<MyOrdersScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Container(
-              width: 80,
-              height: 80,
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                border: Border.all(color: Colors.white, width: 2),
-              ),
-              child: const Center(
-                child: Icon(Icons.info_outline, color: Colors.white, size: 40),
-              ),
+            const Center(
+              child: Icon(Icons.info_outline, color: Colors.white, size: 60),
             ),
             const SizedBox(height: 24),
             const Text(
@@ -76,25 +69,24 @@ class _MyOrdersScreenState extends State<MyOrdersScreen> {
             ),
             const SizedBox(height: 40),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16.0),
-              child: SizedBox(
-                width: double.infinity,
-                child: ElevatedButton(
-                  onPressed: () {
-                    // Navigate to shop
-                  },
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.white,
-                    foregroundColor: Colors.black,
-                    padding: const EdgeInsets.symmetric(vertical: 16),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8),
-                    ),
+              padding: const EdgeInsets.only(bottom: 16),
+              child: ElevatedButton.icon(
+                onPressed: () {},
+                icon: const Icon(Icons.arrow_back, color: Colors.black),
+                label: const Text(
+                  "Return to shop",
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontWeight: FontWeight.w600,
                   ),
-                  child: const Text(
-                    'Continue shopping',
-                    style: TextStyle(fontWeight: FontWeight.w600, fontSize: 16),
+                ),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.white,
+                  minimumSize: Size(size.width, 50),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12),
                   ),
+                  elevation: 0,
                 ),
               ),
             ),

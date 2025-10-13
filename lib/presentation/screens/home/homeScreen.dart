@@ -1,12 +1,12 @@
-import 'package:e_commerce/Ui/widgets/CartNotificationBottomSheet.dart';
-import 'package:e_commerce/Ui/widgets/CollectionsFilterBar.dart';
-import 'package:e_commerce/Ui/widgets/ContainerCustomWidget.dart';
-import 'package:e_commerce/Ui/widgets/WelcomeHeader.dart';
-import 'package:e_commerce/Ui/widgets/appbarCustomWidget.dart';
-import 'package:e_commerce/Ui/widgets/category/HorizontalProductCardList.dart';
-import 'package:e_commerce/Ui/widgets/category/HorizontalProductList.dart';
-import 'package:e_commerce/Ui/widgets/category/ProductGridSection.dart';
-import 'package:e_commerce/Ui/widgets/category/seeAllWidget.dart';
+import 'package:e_commerce/presentation/widgets/CartNotificationBottomSheet.dart';
+import 'package:e_commerce/presentation/widgets/CollectionsFilterBar.dart';
+import 'package:e_commerce/presentation/widgets/ContainerCustomWidget.dart';
+import 'package:e_commerce/presentation/widgets/WelcomeHeader.dart';
+import 'package:e_commerce/presentation/widgets/appbarCustomWidget.dart';
+import 'package:e_commerce/presentation/widgets/category/HorizontalProductCardList.dart';
+import 'package:e_commerce/presentation/widgets/category/HorizontalProductList.dart';
+import 'package:e_commerce/presentation/widgets/category/ProductGridSection.dart';
+import 'package:e_commerce/presentation/widgets/category/seeAllWidget.dart';
 import 'package:e_commerce/presentation/screens/home/AllProductScreen.dart';
 import 'package:e_commerce/presentation/screens/home/MainScreen.dart';
 

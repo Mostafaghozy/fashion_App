@@ -1,5 +1,5 @@
-import 'package:e_commerce/Ui/widgets/HomeFilterSheet.dart';
-import 'package:e_commerce/Ui/widgets/category/SortBySheet.dart';
+import 'package:e_commerce/presentation/widgets/HomeFilterSheet.dart';
+import 'package:e_commerce/presentation/widgets/category/SortBySheet.dart';
 
 import 'package:flutter/material.dart';
 

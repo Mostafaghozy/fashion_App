@@ -1,5 +1,5 @@
-import 'package:e_commerce/Ui/widgets/RowProfileWidget.dart';
-import 'package:e_commerce/Ui/widgets/profile/PersonInformation/edit_personal_info.dart';
+import 'package:e_commerce/presentation/widgets/RowProfileWidget.dart';
+import 'package:e_commerce/presentation/widgets/profile/PersonInformation/edit_personal_info.dart';
 
 import 'package:flutter/material.dart';
 

@@ -1,5 +1,5 @@
-import 'package:e_commerce/Ui/widgets/CustomBottomNavBar.dart';
-import 'package:e_commerce/Ui/widgets/payment/PaymentOptionsWidget.dart';
+import 'package:e_commerce/presentation/widgets/CustomBottomNavBar.dart';
+import 'package:e_commerce/presentation/widgets/payment/PaymentOptionsWidget.dart';
 import 'package:e_commerce/presentation/screens/home/MainScreen.dart';
 import 'package:e_commerce/presentation/screens/payment/add_paypal_screen.dart';
 

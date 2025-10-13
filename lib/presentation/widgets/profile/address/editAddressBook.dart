@@ -1,4 +1,4 @@
-import 'package:e_commerce/Ui/widgets/CustomBottomNavBar.dart';
+import 'package:e_commerce/presentation/widgets/CustomBottomNavBar.dart';
 import 'package:e_commerce/presentation/screens/home/MainScreen.dart';
 
 import 'package:flutter/material.dart';

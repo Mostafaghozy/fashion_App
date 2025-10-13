@@ -1,4 +1,4 @@
-import 'package:e_commerce/Ui/widgets/category/ProductCardHorizontal.dart';
+import 'package:e_commerce/presentation/widgets/category/ProductCardHorizontal.dart';
 import 'package:e_commerce/features/data/models/productModel.dart';
 import 'package:flutter/material.dart';
 

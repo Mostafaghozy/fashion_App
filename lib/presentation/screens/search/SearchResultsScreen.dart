@@ -1,9 +1,9 @@
-import 'package:e_commerce/Ui/widgets/CustomBottomNavBar.dart';
-import 'package:e_commerce/Ui/widgets/appbarCustomWidget.dart';
-import 'package:e_commerce/Ui/widgets/category/HorizontalProductList.dart';
-import 'package:e_commerce/Ui/widgets/category/ProductCardGrid.dart';
-import 'package:e_commerce/Ui/widgets/category/SortBySheet.dart';
-import 'package:e_commerce/Ui/widgets/category/sort_filter_bar.dart';
+import 'package:e_commerce/presentation/widgets/CustomBottomNavBar.dart';
+import 'package:e_commerce/presentation/widgets/appbarCustomWidget.dart';
+import 'package:e_commerce/presentation/widgets/category/HorizontalProductList.dart';
+import 'package:e_commerce/presentation/widgets/category/ProductCardGrid.dart';
+import 'package:e_commerce/presentation/widgets/category/SortBySheet.dart';
+import 'package:e_commerce/presentation/widgets/category/sort_filter_bar.dart';
 import 'package:e_commerce/presentation/screens/home/MainScreen.dart';
 
 import 'package:e_commerce/features/data/services/ProductDataService.dart';

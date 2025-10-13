@@ -1,4 +1,4 @@
-import 'package:e_commerce/Ui/widgets/appbarCustomWidget.dart';
+import 'package:e_commerce/presentation/widgets/appbarCustomWidget.dart';
 import 'package:e_commerce/presentation/screens/search/SearchResultsScreen.dart';
 import 'package:e_commerce/features/data/services/SearchHistoryService.dart';
 import 'package:flutter/material.dart';
