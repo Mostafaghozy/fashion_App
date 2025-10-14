@@ -28,7 +28,7 @@ class _MainScreenState extends State<MainScreen> {
   final List<Widget> _screens = [
     HomeScreen(),
     SearchScreen(),
-    CartScreen(),
+    MyCartScreen(),
     WishlistScreen(),
     NotificationScreen(),
   ];
