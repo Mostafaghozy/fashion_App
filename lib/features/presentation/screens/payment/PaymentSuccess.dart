@@ -11,7 +11,7 @@ class PaymentSuccess extends StatelessWidget {
       appBar: AppBar(
         actions: [
           Padding(
-            padding: const EdgeInsets.only(right: 10),
+            padding: const EdgeInsets.only(right: 10, left: 10),
             child: GestureDetector(
               onTap: () {
                 Navigator.pop(context);

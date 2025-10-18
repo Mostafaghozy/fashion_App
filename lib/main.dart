@@ -1,4 +1,5 @@
 import 'package:e_commerce/features/presentation/screens/cart/CartScreen.dart';
+import 'package:e_commerce/features/presentation/screens/cart/CheckoutScreen.dart';
 import 'package:e_commerce/features/presentation/screens/home/AllProductScreen.dart';
 import 'package:e_commerce/features/presentation/screens/home/MainScreen.dart';
 import 'package:e_commerce/features/presentation/screens/home/homeScreen.dart';
@@ -29,7 +30,7 @@ class MyApp extends StatelessWidget {
       themeMode: ThemeMode.system,
       theme: AppThemes.light,
       darkTheme: AppThemes.dark,
-      home: PaymentSuccess(),
+      home: CheckoutScreen(),
     );
   }
 }
