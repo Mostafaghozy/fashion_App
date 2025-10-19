@@ -58,6 +58,7 @@ lib/
             ProductGridSection.dart
       ...
 main.dart                     # App entry: MaterialApp, theming, initial route
+SplashScreen.dart
 ```
 
 Assets and fonts are configured in `pubspec.yaml`:
