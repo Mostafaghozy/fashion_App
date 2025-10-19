@@ -38,25 +38,27 @@ A cross‑platform shopping app built with Flutter and Dart. The app showcases a
 lib/
   core/
     theme.dart                # AppThemes (light/dark), typography/colors
-  data/
-    model/
-      productModel.dart       # Product entity with copyWith
-    services/
-      ProductDataService.dart # In‑memory product data and selectors
-  Ui/
-    screens/                  # Feature screens grouped by domain (home, cart, ...)
-      home/
-        MainScreen.dart       # Tab scaffold and navigation
-        homeScreen.dart       # Home composition using widgets
-      payment/                # Payment screens (PayPal, Credit Card, Orders)
+  features/
+      data/
+            model/
+              productModel.dart       # Product entity with copyWith
+            services/
+              ProductDataService.dart # In‑memory product data and selectors
+      presention/
+            screens/                  # Feature screens grouped by domain (home, cart, ...)
+                  home/
+                    MainScreen.dart       # Tab scaffold and navigation
+                    homeScreen.dart       # Home composition using widgets
+                  payment/                # Payment screens (PayPal, Credit Card, Orders)
       ...
     widgets/                  # Reusable UI components
-      CustomBottomNavBar.dart # Navigation bar
-      ProductCardComponent.dart
-      HorizontalProductList.dart
-      ProductGridSection.dart
+            CustomBottomNavBar.dart # Navigation bar
+            ProductCardComponent.dart
+            HorizontalProductList.dart
+            ProductGridSection.dart
       ...
 main.dart                     # App entry: MaterialApp, theming, initial route
+SplashScreen.dart
 ```
 
 Assets and fonts are configured in `pubspec.yaml`:
