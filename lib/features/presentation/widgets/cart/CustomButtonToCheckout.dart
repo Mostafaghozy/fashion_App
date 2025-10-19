@@ -32,9 +32,9 @@ class CustomButtonToCheckout extends StatelessWidget {
           child: Text(
             text,
             style: TextStyle(
-              fontSize: fontSize ?? 14,
+              fontSize: fontSize ?? 15,
               color: textColor ?? Colors.black,
-              fontWeight: fontWeight ?? FontWeight.w500,
+              fontWeight: fontWeight ?? FontWeight.w600,
             ),
           ),
         ),
