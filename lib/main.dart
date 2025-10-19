@@ -3,7 +3,6 @@ import 'package:e_commerce/features/presentation/screens/cart/CheckoutScreen.dar
 import 'package:e_commerce/features/presentation/screens/home/AllProductScreen.dart';
 import 'package:e_commerce/features/presentation/screens/home/MainScreen.dart';
 import 'package:e_commerce/features/presentation/screens/home/homeScreen.dart';
-import 'package:e_commerce/features/presentation/screens/payment/DeliveryStatusScreen.dart';
 import 'package:e_commerce/features/presentation/screens/payment/PaymentSuccess.dart';
 import 'package:e_commerce/features/presentation/screens/payment/my_orders_screen.dart';
 import 'package:e_commerce/features/presentation/screens/search/SearchScreen.dart';
@@ -31,7 +30,7 @@ class MyApp extends StatelessWidget {
       themeMode: ThemeMode.system,
       theme: AppThemes.light,
       darkTheme: AppThemes.dark,
-      home: DeliveryStatusScreen(),
+      home: CheckoutScreen(),
     );
   }
 }
