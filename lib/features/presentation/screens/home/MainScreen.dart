@@ -2,7 +2,7 @@ import 'package:e_commerce/features/presentation/widgets/CustomBottomNavBar.dart
 import 'package:e_commerce/features/presentation/screens/home/homeScreen.dart';
 import 'package:e_commerce/features/presentation/screens/search/SearchScreen.dart';
 import 'package:e_commerce/features/presentation/screens/cart/CartScreen.dart';
-import 'package:e_commerce/features/presentation/screens/wishlist/WishlistScreen.dart';
+import 'package:e_commerce/features/presentation/screens/wishlist/WishListScreen.dart';
 import 'package:e_commerce/features/presentation/screens/notification/NotificationScreen.dart';
 
 import 'package:flutter/material.dart';

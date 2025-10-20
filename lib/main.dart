@@ -3,10 +3,11 @@ import 'package:e_commerce/features/presentation/screens/cart/CheckoutScreen.dar
 import 'package:e_commerce/features/presentation/screens/home/AllProductScreen.dart';
 import 'package:e_commerce/features/presentation/screens/home/MainScreen.dart';
 import 'package:e_commerce/features/presentation/screens/home/homeScreen.dart';
+import 'package:e_commerce/features/presentation/screens/notification/NotificationScreen.dart';
 import 'package:e_commerce/features/presentation/screens/payment/PaymentSuccess.dart';
 import 'package:e_commerce/features/presentation/screens/payment/my_orders_screen.dart';
 import 'package:e_commerce/features/presentation/screens/search/SearchScreen.dart';
-import 'package:e_commerce/features/presentation/screens/wishlist/WishlistScreen.dart';
+import 'package:e_commerce/features/presentation/screens/wishlist/WishListScreen.dart';
 
 import 'package:e_commerce/core/theme.dart';
 import 'package:flutter/material.dart';
@@ -30,7 +31,7 @@ class MyApp extends StatelessWidget {
       themeMode: ThemeMode.system,
       theme: AppThemes.light,
       darkTheme: AppThemes.dark,
-      home: CheckoutScreen(),
+      home: MainScreen(),
     );
   }
 }

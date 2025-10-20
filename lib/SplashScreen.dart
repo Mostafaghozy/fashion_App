@@ -2,14 +2,14 @@ import 'package:e_commerce/features/presentation/widgets/imageCustom.dart';
 import 'package:e_commerce/features/presentation/screens/auth/authScreen.dart';
 import 'package:flutter/material.dart';
 
-class AnimationScreen extends StatefulWidget {
-  const AnimationScreen({super.key});
+class SplashScreen extends StatefulWidget {
+  const SplashScreen({super.key});
 
   @override
-  State<AnimationScreen> createState() => _AnimationScreenState();
+  State<SplashScreen> createState() => _SplashScreenState();
 }
 
-class _AnimationScreenState extends State<AnimationScreen>
+class _SplashScreenState extends State<SplashScreen>
     with SingleTickerProviderStateMixin {
   late final AnimationController _controller;
   late final Animation<double> _scaleAnim;
