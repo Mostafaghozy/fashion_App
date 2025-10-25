@@ -1,5 +1,5 @@
 import 'package:e_commerce/features/presentation/widgets/CustomBottomNavBar.dart';
-import 'package:e_commerce/features/presentation/screens/home/MainScreen.dart';
+import 'package:e_commerce/features/presentation/screens/home/Root.dart';
 
 import 'package:flutter/material.dart';
 import '../../custom_input_field.dart';
@@ -229,7 +229,7 @@ class _EditAddressBookState extends State<EditAddressBook> {
           Navigator.pushReplacement(
             context,
             MaterialPageRoute(
-              builder: (context) => MainScreen(initialIndex: index),
+              builder: (context) => RootScreen(initialIndex: index),
             ),
           );
         },

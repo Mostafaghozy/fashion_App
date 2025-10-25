@@ -3,7 +3,7 @@ import 'package:e_commerce/features/presentation/widgets/RowProfileWidget.dart';
 import 'package:e_commerce/features/presentation/widgets/profile/PersonInformation/personalInformationWidget.dart';
 import 'package:e_commerce/features/presentation/widgets/profile/address/addressBook.dart';
 
-import 'package:e_commerce/features/presentation/screens/home/MainScreen.dart';
+import 'package:e_commerce/features/presentation/screens/home/Root.dart';
 import 'package:flutter/material.dart';
 
 class ProfileScreen extends StatelessWidget {
@@ -141,7 +141,7 @@ class ProfileScreen extends StatelessWidget {
           Navigator.pushReplacement(
             context,
             MaterialPageRoute(
-              builder: (context) => MainScreen(initialIndex: index),
+              builder: (context) => RootScreen(initialIndex: index),
             ),
           );
         },

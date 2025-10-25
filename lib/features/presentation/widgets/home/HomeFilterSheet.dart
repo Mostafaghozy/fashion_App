@@ -29,7 +29,7 @@ class _HomeFilterSheetState extends State<HomeFilterSheet> {
 
   String selectedCategory = 'All';
   int? selectedColorIndex;
-  double maxPrice = 50;
+  double maxPrice = 100;
   int selectedRating = 4; // 4 & up by default
 
   @override

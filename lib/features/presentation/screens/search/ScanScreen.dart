@@ -146,12 +146,12 @@ class _ScanScreenState extends State<ScanScreen> with TickerProviderStateMixin {
 
   void _viewProductDetails() {
     // Navigate to product details or search results
-    Navigator.of(context).push(
-      MaterialPageRoute(
-        builder: (context) =>
-            SearchResultsScreen(searchQuery: _detectedProduct['title']),
-      ),
-    );
+    // Navigator.of(context).push(
+    //   MaterialPageRoute(
+    //     builder: (context) =>
+    //         SearchResultsScreen(searchQuery: _detectedProduct['title']),
+    //   ),
+    // );
   }
 
   @override

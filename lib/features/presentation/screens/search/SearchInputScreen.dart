@@ -1,4 +1,4 @@
-import 'package:e_commerce/features/presentation/widgets/appbarCustomWidget.dart';
+import 'package:e_commerce/features/presentation/widgets/home/appbarCustomWidget.dart';
 import 'package:e_commerce/features/presentation/screens/search/SearchResultsScreen.dart';
 import 'package:e_commerce/features/data/services/SearchHistoryService.dart';
 import 'package:flutter/material.dart';
@@ -34,11 +34,11 @@ class _SearchInputScreenState extends State<SearchInputScreen> {
     final query = _searchController.text.trim();
     if (query.isNotEmpty) {
       SearchHistoryService.addSearch(query);
-      Navigator.of(context).push(
-        MaterialPageRoute(
-          builder: (context) => SearchResultsScreen(searchQuery: query),
-        ),
-      );
+      // Navigator.of(context).push(
+      //   MaterialPageRoute(
+      //     builder: (context) => SearchResultsScreen(searchQuery: query),
+      //   ),
+      // );
     }
   }
 

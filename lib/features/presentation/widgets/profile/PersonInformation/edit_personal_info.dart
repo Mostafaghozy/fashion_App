@@ -1,6 +1,6 @@
 import 'package:e_commerce/features/presentation/widgets/CustomBottomNavBar.dart';
 import 'package:e_commerce/features/presentation/widgets/custom_input_field.dart';
-import 'package:e_commerce/features/presentation/screens/home/MainScreen.dart';
+import 'package:e_commerce/features/presentation/screens/home/Root.dart';
 import 'package:flutter/material.dart';
 
 class EditPersonalInfo extends StatefulWidget {
@@ -163,7 +163,7 @@ class _EditPersonalInfoState extends State<EditPersonalInfo> {
           Navigator.pushReplacement(
             context,
             MaterialPageRoute(
-              builder: (context) => MainScreen(initialIndex: index),
+              builder: (context) => RootScreen(initialIndex: index),
             ),
           );
         },

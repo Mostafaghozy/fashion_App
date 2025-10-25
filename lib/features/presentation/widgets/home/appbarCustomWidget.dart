@@ -25,7 +25,7 @@ class AppBarCustomWidget extends StatelessWidget
       ),
       actions: [
         Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
           child: GestureDetector(
             onTap: () {
               Navigator.push(
@@ -33,7 +33,11 @@ class AppBarCustomWidget extends StatelessWidget
                 MaterialPageRoute(builder: (context) => const ProfileScreen()),
               );
             },
-            child: Image.asset("assets/personProfile.png"),
+            child: CircleAvatar(
+              radius: 30,
+              backgroundColor: Colors.white60,
+              child: Image.asset("assets/profile.png"),
+            ),
           ),
         ),
       ],
