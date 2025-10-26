@@ -35,7 +35,6 @@ class _RootScreenState extends State<RootScreen> {
         controller: controller,
         physics: const NeverScrollableScrollPhysics(),
         children: [
-          /// 🏠 Home Tab - فيه Navigator خاص
           Navigator(
             key: _homeNavigatorKey,
             onGenerateRoute: (settings) {
@@ -50,21 +49,16 @@ class _RootScreenState extends State<RootScreen> {
             },
           ),
 
-          /// 🔍 Search
           const SearchScreen(),
 
-          /// 🛒 Cart
           const MyCartScreen(),
 
-          /// ❤️ Wishlist
           const WishlistScreen(),
 
-          /// 🔔 Notifications
           const NotificationScreen(),
         ],
       ),
 
-      /// 🧭 Bottom Navigation Bar
       bottomNavigationBar: Container(
         padding: const EdgeInsets.all(10),
         decoration: BoxDecoration(

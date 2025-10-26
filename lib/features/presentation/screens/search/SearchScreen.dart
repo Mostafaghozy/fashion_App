@@ -1,5 +1,6 @@
+import 'package:e_commerce/features/presentation/widgets/home/CustomListView.dart';
 import 'package:e_commerce/features/presentation/widgets/home/appbarCustomWidget.dart';
-import 'package:e_commerce/features/presentation/widgets/category/HorizontalProductCardList.dart';
+import 'package:e_commerce/features/presentation/widgets/home/GridViewHorizontal.dart';
 import 'package:e_commerce/features/presentation/widgets/home/CardItem.dart';
 import 'package:e_commerce/features/presentation/widgets/search/RecentSearchWidget.dart';
 import 'package:e_commerce/features/presentation/widgets/search/ScanWidget.dart';
@@ -52,18 +53,22 @@ class _SearchScreenState extends State<SearchScreen> {
                 const SizedBox(height: 20),
                 const SectionTitle(title: 'Trending clothes'),
                 const SizedBox(height: 8),
+                CustomListView(),
 
                 const SizedBox(height: 18),
 
                 const SectionTitle(title: 'New arrivals'),
                 const SizedBox(height: 8),
-
-                SizedBox(height: 0.5),
-
+                HorizontalProductCardList(
+                  image: 'assets/girl_h1.png',
+                  text: 'Cotton long sleve jacket',
+                  title: 'Women’s wear',
+                  price: '26.55',
+                ),
                 const SizedBox(height: 15),
-
                 const SectionTitle(title: 'Top sale products'),
                 const SizedBox(height: 8),
+                CustomListView(),
 
                 const SizedBox(height: 15),
                 SortFilterBar(

@@ -9,15 +9,18 @@ class CustomListView extends StatelessWidget {
     return SizedBox(
       height: 330,
       child: ListView.builder(
-        padding: EdgeInsets.only(right: 15),
         scrollDirection: Axis.horizontal,
         itemCount: 6,
         shrinkWrap: true,
+
         itemBuilder: (context, index) {
-          return CardItem(
-            image: 'assets/modelGirl1.png',
-            title: 'Green Long Sleeve \nShirt',
-            price: '100',
+          return Padding(
+            padding: const EdgeInsets.only(right: 2),
+            child: CardItem(
+              image: 'assets/modelGirl1.png',
+              title: 'Green Long Sleeve \nShirt',
+              price: '100',
+            ),
           );
         },
       ),

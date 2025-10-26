@@ -1,7 +1,9 @@
 import 'package:e_commerce/features/presentation/widgets/CartNotificationBottomSheet.dart';
 import 'package:e_commerce/features/presentation/widgets/CustomBottomNavBar.dart';
+import 'package:e_commerce/features/presentation/widgets/home/CustomListView.dart';
+import 'package:e_commerce/features/presentation/widgets/home/GridViewVertical.dart';
 import 'package:e_commerce/features/presentation/widgets/home/appbarCustomWidget.dart';
-import 'package:e_commerce/features/presentation/widgets/category/HorizontalProductCardList.dart';
+import 'package:e_commerce/features/presentation/widgets/home/GridViewHorizontal.dart';
 import 'package:e_commerce/features/presentation/widgets/home/CardItem.dart';
 
 import 'package:e_commerce/features/presentation/widgets/category/category_item.dart';
@@ -12,6 +14,7 @@ import 'package:e_commerce/features/presentation/screens/home/Root.dart';
 
 import 'package:e_commerce/features/data/services/ProductDataService.dart';
 import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
 
 class AllProductScreen extends StatefulWidget {
   const AllProductScreen({super.key, List<String>? images})
@@ -51,14 +54,14 @@ class _AllProductScreenState extends State<AllProductScreen> {
       appBar: AppBarCustomWidget(),
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.only(left: 10),
+          padding: const EdgeInsets.symmetric(horizontal: 5),
           child: SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const SizedBox(height: 8),
+                Gap(8),
                 const SectionTitle(title: 'Categories'),
-                const SizedBox(height: 8),
+                Gap(8),
                 CategoryList(
                   images: widget.images,
                   labels: kCategories,
@@ -73,30 +76,33 @@ class _AllProductScreenState extends State<AllProductScreen> {
                     );
                   },
                 ),
-                const SizedBox(height: 18),
+                Gap(18),
 
-                // Trending collections (horizontal)
                 const SectionTitle(title: 'Trending clothes'),
-                const SizedBox(height: 8),
+                Gap(8),
+                CustomListView(),
 
                 const SizedBox(height: 18),
 
                 const SectionTitle(title: 'New arrivals'),
                 const SizedBox(height: 8),
+                HorizontalProductCardList(
+                  image: 'assets/girl_h1.png',
+                  text: 'Cotton long sleve jacket',
+                  title: 'Women’s wear',
+                  price: '26.55',
+                ),
 
-                SizedBox(height: 0.5),
-
-                const SizedBox(height: 15),
+                Gap(15),
 
                 const SectionTitle(title: 'Top sale products'),
-                const SizedBox(height: 8),
-
-                const SizedBox(height: 15),
+                Gap(8),
+                CustomListView(),
 
                 const SectionTitle(title: 'Summer collection'),
-                const SizedBox(height: 8),
+                GridViewAllProduct(),
 
-                const SizedBox(height: 20),
+                Gap(20),
                 SortFilterBar(
                   onSort: () => ScaffoldMessenger.of(
                     context,

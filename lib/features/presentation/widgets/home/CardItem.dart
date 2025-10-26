@@ -19,54 +19,49 @@ class CardItem extends StatelessWidget {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadiusGeometry.circular(15),
       ),
-      child: Padding(
-        padding: const EdgeInsets.all(10),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            ClipRRect(
-              borderRadius: BorderRadius.circular(15),
-              child: Stack(
-                children: [
-                  Image.asset(image, height: 200, fit: BoxFit.cover),
-                  Positioned(
-                    top: 7,
-                    right: 5,
-                    child: Column(
-                      children: [
-                        Icon(
-                          CupertinoIcons.heart,
-                          size: 18,
-                          color: Colors.black,
-                        ),
-                        Gap(140),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          ClipRRect(
+            borderRadius: BorderRadius.circular(15),
+            child: Stack(
+              children: [
+                Image.asset(image, height: 200, fit: BoxFit.cover),
+                Positioned(
+                  top: 7,
+                  right: 5,
+                  bottom: 10,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Icon(CupertinoIcons.heart, size: 18, color: Colors.black),
 
-                        CircleAvatar(
-                          radius: 15,
-                          backgroundColor: Color(0xffC9C52E),
-                          child: Icon(CupertinoIcons.bag, size: 18),
-                        ),
-                      ],
-                    ),
+                      CircleAvatar(
+                        radius: 15,
+                        backgroundColor: Color(0xffC9C52E),
+                        child: Icon(CupertinoIcons.bag, size: 18),
+                      ),
+                    ],
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
+          ),
 
-            Gap(10),
-            Text(
-              title,
-              softWrap: true,
-              maxLines: 2,
+          Gap(10),
+          Text(
+            title,
+            softWrap: true,
+            maxLines: 2,
+            overflow: TextOverflow.ellipsis,
 
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-            ),
-            Text(
-              "\$$price",
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-            ),
-          ],
-        ),
+            style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+          ),
+          Text(
+            "\$$price",
+            style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+          ),
+        ],
       ),
     );
   }

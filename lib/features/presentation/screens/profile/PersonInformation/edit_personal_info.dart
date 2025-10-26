@@ -1,4 +1,5 @@
 import 'package:e_commerce/features/presentation/widgets/CustomBottomNavBar.dart';
+import 'package:e_commerce/features/presentation/widgets/cart/CustomButtonToCheckout.dart';
 import 'package:e_commerce/features/presentation/widgets/custom_input_field.dart';
 import 'package:e_commerce/features/presentation/screens/home/Root.dart';
 import 'package:flutter/material.dart';
@@ -145,28 +146,9 @@ class _EditPersonalInfoState extends State<EditPersonalInfo> {
 
             Divider(thickness: 0.5, color: Colors.grey.withOpacity(0.3)),
             const SizedBox(height: 10),
-            SizedBox(
-              width: double.infinity,
-              child: ElevatedButton(
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-                child: const Text('Save'),
-              ),
-            ),
+            CustomButtonToCheckout(text: 'Save', onTap: () {}),
           ],
         ),
-      ),
-      bottomNavigationBar: CustomBottomNavBar(
-        currentIndex: 0,
-        onTap: (index) {
-          Navigator.pushReplacement(
-            context,
-            MaterialPageRoute(
-              builder: (context) => RootScreen(initialIndex: index),
-            ),
-          );
-        },
       ),
     );
   }

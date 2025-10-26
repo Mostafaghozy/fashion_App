@@ -3,9 +3,10 @@ import 'package:e_commerce/features/presentation/widgets/home/CollectionsFilterB
 import 'package:e_commerce/features/presentation/widgets/home/ContainerCustomWidget.dart';
 import 'package:e_commerce/features/presentation/widgets/home/CustomListView.dart';
 import 'package:e_commerce/features/presentation/widgets/home/HomeFilterSheet.dart';
+import 'package:e_commerce/features/presentation/widgets/home/GridViewVertical.dart';
 import 'package:e_commerce/features/presentation/widgets/home/WelcomeHeader.dart';
 import 'package:e_commerce/features/presentation/widgets/home/appbarCustomWidget.dart';
-import 'package:e_commerce/features/presentation/widgets/category/HorizontalProductCardList.dart';
+import 'package:e_commerce/features/presentation/widgets/home/GridViewHorizontal.dart';
 import 'package:e_commerce/features/presentation/widgets/home/CardItem.dart';
 
 import 'package:e_commerce/features/presentation/widgets/home/seeAllWidget.dart';
@@ -52,41 +53,52 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBarCustomWidget(),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 5),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              WelcomeHeader(),
-              ContainerCustomWidget(),
-              Gap(10),
-              CustomFilterWidget(),
-              Gap(15),
-              seeAllWidget(text1: 'All collections', text2: 'See all'),
-              Gap(20),
-              CustomListView(),
-              Gap(20),
-              seeAllWidget(text1: 'New arrivals', text2: 'See all'),
-              Gap(20),
-              HorizontalProductCardList(),
-
-              Gap(20),
-              seeAllWidget(
-                text1: 'All Product',
-                text2: 'See all',
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const AllProductScreen(),
-                    ),
-                  );
-                },
+      body: CustomScrollView(
+        slivers: [
+          SliverToBoxAdapter(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 5),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  WelcomeHeader(),
+                  Gap(10),
+                  ContainerCustomWidget(),
+                  Gap(10),
+                  CustomFilterWidget(),
+                  Gap(15),
+                  seeAllWidget(text1: 'All collections', text2: 'See all'),
+                  Gap(20),
+                  CustomListView(),
+                  Gap(20),
+                  seeAllWidget(text1: 'New arrivals', text2: 'See all'),
+                  Gap(20),
+                  HorizontalProductCardList(
+                    image: 'assets/girl_h1.png',
+                    text: 'Cotton long sleve jacket',
+                    title: 'Women’s wear',
+                    price: '26.55',
+                  ),
+                  Gap(20),
+                  seeAllWidget(
+                    text1: 'All Product',
+                    text2: 'See all',
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const AllProductScreen(),
+                        ),
+                      );
+                    },
+                  ),
+                  Gap(20),
+                  GridViewAllProduct(),
+                ],
               ),
-            ],
+            ),
           ),
-        ),
+        ],
       ),
     );
   }
