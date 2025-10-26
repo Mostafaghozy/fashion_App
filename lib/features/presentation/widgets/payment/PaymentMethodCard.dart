@@ -19,48 +19,43 @@ class PaymentMethodCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(12),
-      decoration: BoxDecoration(
-        color: Colors.transparent,
-        borderRadius: BorderRadius.circular(8),
-      ),
+      decoration: BoxDecoration(color: Colors.transparent),
       child: Row(
         children: [
           // Logo box
-          Image.asset(logo, fit: BoxFit.contain),
+          Image.asset(logo, width: 70, height: 70, fit: BoxFit.contain),
           const SizedBox(width: 12),
           // Card details
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  maskedNumber,
-                  style: const TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.w600,
-                  ),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                maskedNumber,
+                style: const TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w600,
                 ),
-                const SizedBox(height: 6),
-                Text(
-                  expiry,
-                  style: const TextStyle(fontSize: 14, color: Colors.white70),
-                ),
-              ],
-            ),
+              ),
+              const SizedBox(height: 6),
+              Text(
+                expiry,
+                style: const TextStyle(fontSize: 14, color: Colors.white70),
+              ),
+            ],
           ),
+          Spacer(),
 
           if (isDefault) ...[
             Container(
-              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+              padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 2),
               decoration: BoxDecoration(
-                color: const Color(0xFF1E1E1E),
+                color: Colors.transparent,
                 borderRadius: BorderRadius.circular(20),
-                border: Border.all(color: Colors.white10),
+                border: Border.all(color: Colors.white70, width: 1),
               ),
               child: const Text(
                 'Default',
-                style: TextStyle(fontSize: 12, color: Colors.white70),
+                style: TextStyle(fontSize: 10, color: Colors.white70),
               ),
             ),
           ],

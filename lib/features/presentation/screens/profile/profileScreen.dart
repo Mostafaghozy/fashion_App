@@ -1,9 +1,11 @@
+import 'package:e_commerce/features/presentation/screens/payment/PaymentMethodsScreen.dart';
+import 'package:e_commerce/features/presentation/screens/profile/MyPaymentOption.dart';
 import 'package:e_commerce/features/presentation/widgets/CustomBottomNavBar.dart';
 import 'package:e_commerce/features/presentation/widgets/RowProfileWidget.dart';
-import 'package:e_commerce/features/presentation/widgets/profile/PersonInformation/personalInformationWidget.dart';
-import 'package:e_commerce/features/presentation/widgets/profile/address/addressBook.dart';
+import 'package:e_commerce/features/presentation/screens/profile/PersonInformation/personalInformationScreen.dart';
+import 'package:e_commerce/features/presentation/screens/profile/address/addressBook.dart';
 
-import 'package:e_commerce/features/presentation/screens/home/MainScreen.dart';
+import 'package:e_commerce/features/presentation/screens/home/Root.dart';
 import 'package:flutter/material.dart';
 
 class ProfileScreen extends StatelessWidget {
@@ -19,12 +21,26 @@ class ProfileScreen extends StatelessWidget {
             onTap: () {
               Navigator.pop(context);
             },
-            child: Image.asset("assets/icons/Close Square.png"),
+            child: Container(
+              margin: EdgeInsets.only(right: 15),
+              width: 22,
+              height: 22,
+              decoration: BoxDecoration(
+                color: Colors.transparent,
+                borderRadius: BorderRadius.circular(5),
+                border: Border.all(width: 1.5, color: Colors.white),
+              ),
+              child: Icon(
+                Icons.close_rounded,
+                color: Colors.grey.shade600,
+                size: 15,
+              ),
+            ),
           ),
         ],
       ),
       body: Padding(
-        padding: const EdgeInsets.all(8),
+        padding: const EdgeInsets.symmetric(horizontal: 5),
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -52,10 +68,7 @@ class ProfileScreen extends StatelessWidget {
               SizedBox(height: 10),
               Divider(thickness: 0.5, color: Colors.grey.withOpacity(0.3)),
               SizedBox(height: 10),
-              RowProfileWidget(
-                imageAsset: 'assets/icons/credit-card.png',
-                title: 'My payment option',
-              ),
+              MyPaymentOption(),
               SizedBox(height: 10),
               Divider(thickness: 0.5, color: Colors.grey.withOpacity(0.3)),
               SizedBox(height: 10),
@@ -134,17 +147,6 @@ class ProfileScreen extends StatelessWidget {
             ],
           ),
         ),
-      ),
-      bottomNavigationBar: CustomBottomNavBar(
-        currentIndex: 0,
-        onTap: (index) {
-          Navigator.pushReplacement(
-            context,
-            MaterialPageRoute(
-              builder: (context) => MainScreen(initialIndex: index),
-            ),
-          );
-        },
       ),
     );
   }

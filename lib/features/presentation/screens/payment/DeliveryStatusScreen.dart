@@ -1,4 +1,4 @@
-import 'package:e_commerce/features/presentation/screens/home/MainScreen.dart';
+import 'package:e_commerce/features/presentation/screens/home/Root.dart';
 import 'package:e_commerce/features/presentation/screens/home/homeScreen.dart';
 import 'package:e_commerce/features/presentation/widgets/cart/CustomButtonToCheckout.dart';
 import 'package:e_commerce/features/presentation/widgets/payment/CenterTextWidget.dart';
@@ -38,9 +38,11 @@ class DeliveryStatusScreen extends StatelessWidget {
             CustomButtonToCheckout(
               text: 'Back to home',
               onTap: () {
-                Navigator.push(
+                Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(builder: (context) => const MainScreen()),
+                  MaterialPageRoute(
+                    builder: (context) => const RootScreen(initialIndex: 0),
+                  ),
                 );
               },
             ),

@@ -4,7 +4,7 @@ import 'package:e_commerce/features/presentation/widgets/order/buildDeliveryInfo
 import 'package:e_commerce/features/presentation/widgets/order/buildOrderInfo.dart';
 import 'package:e_commerce/features/presentation/widgets/order/buildPaymentInfo.dart';
 import 'package:e_commerce/features/presentation/widgets/order/buildProductItem.dart';
-import 'package:e_commerce/features/presentation/screens/home/MainScreen.dart';
+import 'package:e_commerce/features/presentation/screens/home/Root.dart';
 
 import 'package:flutter/material.dart';
 
@@ -79,7 +79,7 @@ class OrderDetailsScreen extends StatelessWidget {
           Navigator.pushReplacement(
             context,
             MaterialPageRoute(
-              builder: (context) => MainScreen(initialIndex: index),
+              builder: (context) => RootScreen(initialIndex: index),
             ),
           );
         },

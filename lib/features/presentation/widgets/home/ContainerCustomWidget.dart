@@ -7,7 +7,7 @@ class ContainerCustomWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 180,
-      width: double.infinity,
+
       decoration: BoxDecoration(borderRadius: BorderRadius.circular(15)),
       child: Stack(
         children: [
@@ -21,7 +21,7 @@ class ContainerCustomWidget extends StatelessWidget {
           Positioned.fill(
             child: ClipRRect(
               borderRadius: BorderRadius.circular(12),
-              child: Container(color: Colors.black.withOpacity(0.50)),
+              child: Container(color: Colors.black.withOpacity(0.60)),
             ),
           ),
           Positioned(

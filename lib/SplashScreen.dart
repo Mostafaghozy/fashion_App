@@ -1,3 +1,4 @@
+import 'package:e_commerce/features/presentation/screens/home/Root.dart';
 import 'package:e_commerce/features/presentation/widgets/imageCustom.dart';
 import 'package:e_commerce/features/presentation/screens/auth/authScreen.dart';
 import 'package:flutter/material.dart';
@@ -36,9 +37,9 @@ class _SplashScreenState extends State<SplashScreen>
       if (!mounted) return;
       Navigator.of(context).pushReplacement(
         PageRouteBuilder(
-          transitionDuration: const Duration(milliseconds: 600),
+          transitionDuration: const Duration(milliseconds: 100),
           pageBuilder: (context, animation, secondaryAnimation) =>
-              const AuthScreen(),
+              const RootScreen(),
           transitionsBuilder: (context, animation, secondaryAnimation, child) {
             final fade = CurvedAnimation(
               parent: animation,

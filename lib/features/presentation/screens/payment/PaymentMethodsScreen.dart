@@ -8,7 +8,6 @@ class PaymentMethodsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFF0F0F0F),
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
@@ -17,7 +16,8 @@ class PaymentMethodsPage extends StatelessWidget {
           onPressed: () => Navigator.of(context).maybePop(),
         ),
       ),
-      body: SafeArea(
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 2),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -33,12 +33,13 @@ class PaymentMethodsPage extends StatelessWidget {
                 ),
               ),
             ),
+            const SizedBox(height: 20),
             Expanded(
               child: ListView(
                 padding: const EdgeInsets.symmetric(horizontal: 16),
                 children: [
                   PaymentMethodCard(
-                    logo: 'assets/pay/Payment Method.png',
+                    logo: 'assets/pay/VISA.png',
                     cardType: 'VISA',
                     maskedNumber: '421689******1560',
                     expiry: 'Expires 09/23',
@@ -46,7 +47,7 @@ class PaymentMethodsPage extends StatelessWidget {
                   ),
                   Divider(thickness: 0.5, color: Colors.grey.withOpacity(0.5)),
                   PaymentMethodCard(
-                    logo: 'assets/pay/Payment Method (1).png',
+                    logo: 'assets/pay/Mastercard.png',
                     cardType: 'MASTERCARD',
                     maskedNumber: '421689******1560',
                     expiry: 'Expires 09/23',
