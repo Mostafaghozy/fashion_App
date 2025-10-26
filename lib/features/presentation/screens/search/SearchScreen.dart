@@ -36,7 +36,7 @@ class _SearchScreenState extends State<SearchScreen> {
         appBar: AppBarCustomWidget(),
         body: SingleChildScrollView(
           child: Padding(
-            padding: const EdgeInsets.only(left: 3),
+            padding: const EdgeInsets.only(left: 3, top: 5),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
