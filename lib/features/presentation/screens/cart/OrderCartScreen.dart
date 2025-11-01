@@ -26,7 +26,7 @@ class _OrderCartScreenState extends State<OrderCartScreen> {
         ),
       ),
       body: Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: const EdgeInsets.symmetric(horizontal: 8.0),
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -52,6 +52,7 @@ class _OrderCartScreenState extends State<OrderCartScreen> {
               CustomRowTotalCheck(title: 'Total', price: '\$171.00'),
               Gap(30),
               CustomButtonToCheckout(text: 'Proceed to Checkout', onTap: () {}),
+              Gap(10),
             ],
           ),
         ),

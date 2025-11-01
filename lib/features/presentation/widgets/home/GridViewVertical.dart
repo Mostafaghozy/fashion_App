@@ -13,7 +13,7 @@ class GridViewAllProduct extends StatelessWidget {
         crossAxisCount: 2,
         mainAxisSpacing: 8,
         crossAxisSpacing: 15,
-        childAspectRatio: 0.5,
+        childAspectRatio: 0.48,
       ),
       padding: EdgeInsets.zero,
       scrollDirection: Axis.vertical,

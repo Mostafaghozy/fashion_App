@@ -2,6 +2,7 @@ import 'package:e_commerce/features/presentation/widgets/CustomBottomNavBar.dart
 import 'package:e_commerce/features/presentation/widgets/cart/CustomButtonToCheckout.dart';
 import 'package:e_commerce/features/presentation/widgets/custom_input_field.dart';
 import 'package:e_commerce/features/presentation/screens/home/Root.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class EditPersonalInfo extends StatefulWidget {
@@ -39,7 +40,12 @@ class _EditPersonalInfoState extends State<EditPersonalInfo> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        leading: IconButton(
+          icon: Icon(CupertinoIcons.arrow_left, color: Colors.white54),
+          onPressed: () => Navigator.of(context).maybePop(),
+        ),
+      ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16),
         child: Column(

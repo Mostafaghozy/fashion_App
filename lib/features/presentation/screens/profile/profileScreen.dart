@@ -1,4 +1,6 @@
 import 'package:e_commerce/features/presentation/screens/payment/PaymentMethodsScreen.dart';
+import 'package:e_commerce/features/presentation/screens/profile/GiveFeedbackScreen.dart';
+import 'package:e_commerce/features/presentation/screens/profile/MyOrderScreen.dart';
 import 'package:e_commerce/features/presentation/screens/profile/MyPaymentOption.dart';
 import 'package:e_commerce/features/presentation/widgets/CustomBottomNavBar.dart';
 import 'package:e_commerce/features/presentation/widgets/RowProfileWidget.dart';
@@ -91,14 +93,11 @@ class ProfileScreen extends StatelessWidget {
               SizedBox(height: 10),
               Divider(thickness: 0.5, color: Colors.grey.withOpacity(0.3)),
               SizedBox(height: 10),
-              RowProfileWidget(
-                imageAsset: 'assets/icons/codesandbox.png',
-                title: 'My order',
-              ),
+              MyOrderScreen(),
               SizedBox(height: 10),
               Divider(thickness: 0.5, color: Colors.grey.withOpacity(0.3)),
               SizedBox(height: 20),
-              /////////////////////////////
+              ////////////////////////////////////////////////////////////
               Text(
                 "Support",
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
@@ -118,10 +117,7 @@ class ProfileScreen extends StatelessWidget {
               SizedBox(height: 10),
               Divider(thickness: 0.5, color: Colors.grey.withOpacity(0.3)),
               SizedBox(height: 10),
-              RowProfileWidget(
-                imageAsset: 'assets/icons/edit-3.png',
-                title: 'Give us feedback',
-              ),
+              GiveFeedbackScreen(),
               SizedBox(height: 10),
               Divider(thickness: 0.5, color: Colors.grey.withOpacity(0.3)),
               SizedBox(height: 20),

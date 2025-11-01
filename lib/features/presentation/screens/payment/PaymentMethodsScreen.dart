@@ -1,5 +1,6 @@
 import 'package:e_commerce/features/presentation/widgets/payment/PaymentMethodCard.dart';
 import 'package:e_commerce/features/presentation/screens/payment/PaymentScreen.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class PaymentMethodsPage extends StatelessWidget {
@@ -9,10 +10,8 @@ class PaymentMethodsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        elevation: 0,
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back_outlined, size: 18),
+          icon: Icon(CupertinoIcons.arrow_left, color: Colors.white54),
           onPressed: () => Navigator.of(context).maybePop(),
         ),
       ),

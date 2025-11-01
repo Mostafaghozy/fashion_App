@@ -1,6 +1,7 @@
 import 'package:e_commerce/features/presentation/widgets/CustomBottomNavBar.dart';
 import 'package:e_commerce/features/presentation/screens/home/Root.dart';
 import 'package:e_commerce/features/presentation/widgets/profile/TypeChipWidget.dart';
+import 'package:flutter/cupertino.dart';
 
 import 'package:flutter/material.dart';
 import '../../../widgets/custom_input_field.dart';
@@ -60,7 +61,7 @@ class _EditAddressBookState extends State<EditAddressBook> {
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back_ios_new_rounded),
+          icon: Icon(CupertinoIcons.arrow_left, color: Colors.white54),
           onPressed: () => Navigator.of(context).maybePop(),
         ),
       ),

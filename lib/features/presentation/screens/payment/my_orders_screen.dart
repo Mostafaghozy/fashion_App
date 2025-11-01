@@ -2,6 +2,7 @@ import 'package:e_commerce/features/presentation/screens/cart/CartScreen.dart';
 import 'package:e_commerce/features/presentation/widgets/order/EmptyWidget.dart';
 import 'package:e_commerce/features/presentation/widgets/order/buildFilterButton.dart';
 import 'package:e_commerce/features/presentation/widgets/order/orderCard.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
@@ -20,11 +21,9 @@ class _MyOrdersScreenState extends State<MyOrdersScreen> {
     return Scaffold(
       backgroundColor: Colors.black,
       appBar: AppBar(
-        backgroundColor: Colors.black,
-        elevation: 0,
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back_outlined, color: Colors.white),
-          onPressed: () => Navigator.of(context).pop(),
+          icon: Icon(CupertinoIcons.arrow_left, color: Colors.white54),
+          onPressed: () => Navigator.of(context).maybePop(),
         ),
       ),
       body: SafeArea(

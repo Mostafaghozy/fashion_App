@@ -60,7 +60,7 @@ class _RootScreenState extends State<RootScreen> {
       ),
 
       bottomNavigationBar: Container(
-        padding: const EdgeInsets.all(10),
+        padding: const EdgeInsets.all(5),
         decoration: BoxDecoration(
           color: Colors.white.withOpacity(0.1),
           borderRadius: const BorderRadius.only(

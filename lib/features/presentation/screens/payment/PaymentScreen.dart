@@ -85,17 +85,6 @@ class PaymentOptionsScreen extends StatelessWidget {
           ],
         ),
       ),
-      bottomNavigationBar: CustomBottomNavBar(
-        currentIndex: 0,
-        onTap: (index) {
-          Navigator.pushReplacement(
-            context,
-            MaterialPageRoute(
-              builder: (context) => RootScreen(initialIndex: index),
-            ),
-          );
-        },
-      ),
     );
   }
 }
