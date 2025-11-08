@@ -7,7 +7,10 @@ import 'package:e_commerce/features/presentation/widgets/payment/AddPaymentButto
 
 /// CardDetailsScreen (uses extracted widgets)
 class CardDetailsScreen extends StatefulWidget {
-  const CardDetailsScreen({super.key});
+  /// initialIsDefault: when true the add-card screen will start with the "set as default" toggle on.
+  const CardDetailsScreen({super.key, this.initialIsDefault = false});
+
+  final bool initialIsDefault;
 
   @override
   State<CardDetailsScreen> createState() => _CardDetailsScreenState();
@@ -100,10 +103,16 @@ class _CardDetailsScreenState extends State<CardDetailsScreen> {
                   onPressed: () {
                     final valid = _formKey.currentState?.validate() ?? false;
                     if (valid) {
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        const SnackBar(content: Text('Card added')),
-                      );
-                      Navigator.of(context).pop();
+                      final newCard = {
+                        'logo':
+                            'assets/pay/VISA.png', // you can later detect automatically
+                        'cardType': 'VISA',
+                        'cardNumber': _cardNumber,
+                        'expiry': _expiryDate,
+                        'isDefault': _isDefaultPayment,
+                      };
+
+                      Navigator.pop(context, newCard);
                     } else {
                       ScaffoldMessenger.of(context).showSnackBar(
                         const SnackBar(
@@ -121,6 +130,13 @@ class _CardDetailsScreenState extends State<CardDetailsScreen> {
         ),
       ),
     );
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    // Initialize the default toggle from the incoming argument
+    _isDefaultPayment = widget.initialIsDefault;
   }
 
   void _onCreditCardModelChange(CreditCardModel model) {
