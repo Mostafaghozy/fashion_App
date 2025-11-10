@@ -107,8 +107,8 @@ class PaymentMethodCard extends StatelessWidget {
                 onPressed: () {
                   showModalBottomSheet(
                     context: context,
-                    isScrollControlled: true,
-                    backgroundColor: Colors.transparent,
+                    useRootNavigator: true,
+                    backgroundColor: const Color.fromARGB(230, 25, 25, 27),
                     builder: (ctx) => CardActionSheet(
                       cardType: cardType,
                       maskedNumber: maskedNumber,

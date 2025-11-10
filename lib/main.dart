@@ -11,13 +11,18 @@ import 'package:e_commerce/features/presentation/screens/wishlist/WishListScreen
 
 import 'package:device_preview/device_preview.dart';
 import 'package:e_commerce/core/theme.dart';
-import 'package:e_commerce/test.dart';
+import 'package:e_commerce/test.json';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-void main() => runApp(
-  DevicePreview(enabled: !kReleaseMode, builder: (context) => const MyApp()),
-);
+void main() =>
+    // MyApp();
+    runApp(
+      DevicePreview(
+        enabled: !kReleaseMode,
+        builder: (context) => const MyApp(),
+      ),
+    );
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});

@@ -1,5 +1,6 @@
 import 'package:e_commerce/features/presentation/screens/payment/ConfirmCardScreen.dart';
 import 'package:e_commerce/features/presentation/screens/payment/CreditCardScreen.dart';
+import 'package:e_commerce/features/presentation/screens/payment/PaymentOptionsScreen.dart';
 import 'package:e_commerce/features/presentation/widgets/payment/PaymentMethodCard.dart';
 
 import 'package:flutter/cupertino.dart';
@@ -14,26 +15,11 @@ class PaymentMethodsPage extends StatefulWidget {
 
 int selectedIndex = 0;
 
-final List<Map<String, dynamic>> _cards = [
-  {
-    'logo': 'assets/pay/VISA.png',
-    'cardType': 'VISA',
-    'maskedNumber': '421689******1560',
-    'expiry': 'Expires 09/23',
-    'isDefault': true,
-  },
-  {
-    'logo': 'assets/pay/Mastercard.png',
-    'cardType': 'MASTERCARD',
-    'maskedNumber': '421689******1560',
-    'expiry': 'Expires 09/23',
-    'isDefault': false,
-  },
-];
+final List<Map<String, dynamic>> _cards = [];
 
 class _PaymentMethodsPageState extends State<PaymentMethodsPage> {
   // Whether the Add button should mark the new card as default
-  bool _setNewAsDefault = false;
+  final bool _setNewAsDefault = false;
 
   @override
   Widget build(BuildContext context) {
@@ -90,7 +76,7 @@ class _PaymentMethodsPageState extends State<PaymentMethodsPage> {
                       cardType: card['cardType'],
                       maskedNumber: card['maskedNumber'] ?? card['cardNumber'],
                       expiry: card['expiry'],
-                      isDefault: card['isDefault'] == true,
+                      isDefault: card['isDefault'],
                       onSelect: () {
                         setState(() {
                           // Set this card as default and unset others
@@ -99,31 +85,32 @@ class _PaymentMethodsPageState extends State<PaymentMethodsPage> {
                           }
                           selectedIndex = index;
                           // Show confirmation
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            SnackBar(
-                              content: Text('Set as default payment method'),
-                            ),
-                          );
                         });
                       },
-                      onDelete: card['isDefault'] == true
-                          ? null
-                          : () {
-                              setState(() {
-                                _cards.removeAt(index);
-                                // If we removed a card before the selected one, adjust the index
-                                if (index < selectedIndex) {
-                                  selectedIndex--;
-                                }
-                                // Keep selectedIndex in bounds
-                                if (selectedIndex >= _cards.length) {
-                                  selectedIndex = _cards.length - 1;
-                                }
-                              });
-                              ScaffoldMessenger.of(context).showSnackBar(
-                                const SnackBar(content: Text('Card removed')),
-                              );
-                            },
+                      onDelete: () {
+                        setState(() {
+                          // If we're removing the default card
+                          if (card['isDefault'] && _cards.length > 1) {
+                            // Make the next card (or previous if this is the last) the default
+                            int newDefaultIndex = index == _cards.length - 1
+                                ? index - 1
+                                : index + 1;
+                            _cards[newDefaultIndex]['isDefault'] = true;
+                          }
+
+                          _cards.removeAt(index);
+
+                          // Adjust selected index
+                          if (index < selectedIndex) {
+                            selectedIndex--;
+                          }
+                          if (selectedIndex >= _cards.length) {
+                            selectedIndex = _cards.length - 1;
+                          }
+
+                          // Show a snackbar to confirm deletion
+                        });
+                      },
                     ),
                   );
                 },
@@ -144,7 +131,7 @@ class _PaymentMethodsPageState extends State<PaymentMethodsPage> {
                         final newCard = await Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => CardDetailsScreen(),
+                            builder: (context) => PaymentOptionsScreen(),
                           ),
                         );
 

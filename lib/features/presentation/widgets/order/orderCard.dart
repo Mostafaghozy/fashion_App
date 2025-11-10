@@ -72,7 +72,10 @@ class OrderCard extends StatelessWidget {
                 ),
               ),
               Container(
-                padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 2),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 15,
+                  vertical: 2,
+                ),
                 decoration: BoxDecoration(
                   color: const Color.fromARGB(255, 142, 151, 18),
                   borderRadius: BorderRadius.circular(20),
@@ -90,7 +93,9 @@ class OrderCard extends StatelessWidget {
               Container(
                 width: 56,
                 height: 56,
-                decoration: BoxDecoration(borderRadius: BorderRadius.circular(8)),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(8),
+                ),
                 child: Image.asset("assets/modelGirl2.png"),
               ),
               const SizedBox(width: 12),
@@ -119,7 +124,10 @@ class OrderCard extends StatelessWidget {
                 ),
               ),
               Container(
-                padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 2),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 15,
+                  vertical: 2,
+                ),
                 decoration: BoxDecoration(
                   color: const Color.fromARGB(255, 142, 151, 18),
                   borderRadius: BorderRadius.circular(20),

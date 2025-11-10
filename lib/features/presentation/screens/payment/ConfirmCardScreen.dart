@@ -35,7 +35,7 @@ class ConfirmCardScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const Text(
-              'Confirm your card',
+              'Information about card',
               style: TextStyle(
                 fontSize: 28,
                 fontWeight: FontWeight.bold,
@@ -44,7 +44,7 @@ class ConfirmCardScreen extends StatelessWidget {
             ),
             const SizedBox(height: 25),
 
-            _buildRow("Card Holder", cardHolderName),
+            // _buildRow("Card Holder", cardHolderName),
             _buildRow("Card Number", maskedCard),
             _buildRow("Expiry Date", expiryDate),
             _buildRow("CVV", "***"),
@@ -65,35 +65,35 @@ class ConfirmCardScreen extends StatelessWidget {
               ],
             ),
 
-            const Spacer(),
+            // const Spacer(),
 
-            SizedBox(
-              width: double.infinity,
-              height: 50,
-              child: ElevatedButton(
-                onPressed: () {
-                  Navigator.pop(context);
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(content: Text("Card saved successfully")),
-                  );
-                },
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.white,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(15),
-                  ),
-                ),
-                child: const Text(
-                  "Confirm & Save",
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
-            ),
-            const SizedBox(height: 20),
+            // SizedBox(
+            //   width: double.infinity,
+            //   height: 50,
+            //   child: ElevatedButton(
+            //     onPressed: () {
+            //       Navigator.pop(context);
+            //       ScaffoldMessenger.of(context).showSnackBar(
+            //         const SnackBar(content: Text("Card saved successfully")),
+            //       );
+            //     },
+            //     style: ElevatedButton.styleFrom(
+            //       backgroundColor: Colors.white,
+            //       shape: RoundedRectangleBorder(
+            //         borderRadius: BorderRadius.circular(15),
+            //       ),
+            //     ),
+            //     child: const Text(
+            //       "Confirm & Save",
+            //       style: TextStyle(
+            //         color: Colors.black,
+            //         fontSize: 16,
+            //         fontWeight: FontWeight.bold,
+            //       ),
+            //     ),
+            //   ),
+            // ),
+            // const SizedBox(height: 20),
           ],
         ),
       ),
