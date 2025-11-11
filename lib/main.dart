@@ -18,10 +18,11 @@ import 'package:flutter/material.dart';
 void main() =>
     // MyApp();
     runApp(
-      DevicePreview(
-        enabled: !kReleaseMode,
-        builder: (context) => const MyApp(),
-      ),
+      MyApp(),
+      // DevicePreview(
+      //   enabled: !kReleaseMode,
+      //   builder: (context) => const MyApp(),
+      // ),
     );
 
 class MyApp extends StatelessWidget {
