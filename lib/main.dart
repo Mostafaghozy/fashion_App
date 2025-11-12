@@ -39,7 +39,8 @@ class MyApp extends StatelessWidget {
     );
   }
 }
- // DevicePreview(
-      //   enabled: !kReleaseMode,
-      //   builder: (context) => const MyApp(),
-      // ),
+
+// DevicePreview(
+//   enabled: !kReleaseMode,
+//   builder: (context) => const MyApp(),
+// ),

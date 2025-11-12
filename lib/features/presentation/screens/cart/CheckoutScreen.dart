@@ -6,6 +6,7 @@ import 'package:e_commerce/features/presentation/widgets/cart/CountryDropdown.da
 import 'package:e_commerce/features/presentation/widgets/cart/CustomButtonToCheckout.dart';
 import 'package:e_commerce/features/presentation/widgets/cart/CustomRowTotalCheck.dart';
 import 'package:e_commerce/features/presentation/widgets/cart/FormFieldCustom.dart';
+import 'package:e_commerce/features/presentation/widgets/cart/PaypalCheckoutWidget.dart';
 import 'package:e_commerce/features/presentation/widgets/cart/RadioListWidget.dart';
 import 'package:e_commerce/features/presentation/widgets/cart/RowTwoDividersWidget.dart';
 import 'package:e_commerce/features/presentation/widgets/cart/ZipCodeContainer.dart';
@@ -21,10 +22,10 @@ class CheckoutScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
-          icon: Icon(Icons.arrow_back),
           onPressed: () {
             Navigator.pop(context);
           },
+          icon: Icon(Icons.arrow_back_ios_new, color: Colors.white70),
         ),
       ),
       body: Padding(
@@ -53,7 +54,9 @@ class CheckoutScreen extends StatelessWidget {
               Gap(10),
               Row(
                 children: [
-                  ContainerPayWidget(image: 'assets/pay/paypal (2) 1 (1).png'),
+                  PaypalCheckoutWidget(
+                    image: 'assets/pay/paypal (2) 1 (1).png',
+                  ),
                   Gap(10),
                   ContainerPayWidget(image: 'assets/pay/apple pay.png'),
                   Gap(10),
@@ -62,12 +65,6 @@ class CheckoutScreen extends StatelessWidget {
               ),
               Gap(20),
               RowTwoDividersWidget(),
-              Gap(10),
-              PaymentSelectionScreen(),
-              Text(
-                "Will be saved in account setting.",
-                style: TextStyle(color: Colors.grey.shade700, fontSize: 12),
-              ),
               Gap(10),
               Text(
                 "Card information",
@@ -84,7 +81,7 @@ class CheckoutScreen extends StatelessWidget {
                 style: TextStyle(color: Colors.grey.shade700, fontSize: 12),
               ),
               Gap(5),
-              FormFieldCustom(hintText: 'HOLDER NAME', isCardNumber: false),
+              FormFieldCustom(hintText: '', isCardNumber: false),
               Gap(10),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,

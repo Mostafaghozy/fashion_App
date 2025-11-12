@@ -9,17 +9,12 @@ class PaymentSuccess extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        actions: [
-          Padding(
-            padding: const EdgeInsets.only(right: 10, left: 10),
-            child: GestureDetector(
-              onTap: () {
-                Navigator.pop(context);
-              },
-              child: Image.asset("assets/icons/Close Square.png"),
-            ),
-          ),
-        ],
+        leading: IconButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          icon: Icon(Icons.arrow_back_ios_new),
+        ),
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.center,

@@ -5,14 +5,40 @@ import 'package:e_commerce/features/data/models/paypal/item_list_model/item_list
 import 'package:e_commerce/features/presentation/widgets/payment/executePaypalPayment.dart';
 import 'package:flutter/material.dart';
 
-class ContainerPayWidget extends StatelessWidget {
-  const ContainerPayWidget({super.key, required this.image});
+class PaypalCheckoutWidget extends StatelessWidget {
+  const PaypalCheckoutWidget({super.key, required this.image});
   final String image;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: () {
+        var amount = AmountModel(
+          currency: "USD",
+          details: Details(
+            shipping: '0',
+            subtotal: '70',
+            shippingDiscount: '0',
+          ),
+          total: "70",
+        );
+        List<OrderItemModel> orders = [
+          OrderItemModel(
+            currency: "USD",
+            name: "Apple",
+            price: "5",
+            quantity: 4,
+          ),
+          OrderItemModel(
+            name: "Pineapple",
+            quantity: 5,
+            price: '10',
+            currency: "USD",
+          ),
+        ];
+        var itemList = ItemListModel(orders: orders);
+        executePaypalPayment(context, amount, itemList);
+      },
 
       child: Container(
         width: 125,

@@ -24,7 +24,7 @@ class ZipCodeContainer extends StatelessWidget {
             decoration: InputDecoration(
               border: InputBorder.none,
               hintStyle: TextStyle(color: Colors.grey.shade700, fontSize: 12),
-              isDense: true, // ✅ يقلل الارتفاع الداخلي
+              isDense: true,
               contentPadding: EdgeInsets.symmetric(vertical: 10),
             ),
             inputFormatters: [

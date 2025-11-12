@@ -1,5 +1,5 @@
 import 'package:e_commerce/features/presentation/widgets/category/ProductCardHorizontal.dart';
-import 'package:e_commerce/features/data/models/productModel.dart';
+
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
