@@ -9,6 +9,7 @@ import 'package:e_commerce/features/presentation/screens/home/Root.dart';
 import 'package:e_commerce/features/presentation/screens/payment/add_paypal_screen.dart';
 
 import 'package:e_commerce/features/presentation/screens/payment/CreditCardScreen.dart';
+import 'package:e_commerce/features/presentation/widgets/payment/executePaypalPayment.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_paypal_payment/flutter_paypal_payment.dart';
 
@@ -121,44 +122,6 @@ class _PaymentOptionsScreenState extends State<PaymentOptionsScreen> {
             ),
             Divider(thickness: 0.5, color: Colors.grey.withOpacity(0.3)),
           ],
-        ),
-      ),
-    );
-  }
-
-  void executePaypalPayment(
-    BuildContext context,
-    AmountModel amount,
-    ItemListModel itemList,
-  ) {
-    Navigator.of(context).push(
-      MaterialPageRoute(
-        builder: (BuildContext context) => PaypalCheckoutView(
-          sandboxMode: true,
-          clientId: ApiKeys.clientIdPaypal,
-          secretKey: ApiKeys.secretKeyPaypal,
-          transactions: [
-            {
-              "amount": amount.toJson(),
-              "description": "The payment transaction description.",
-              // "payment_options": {
-              //   "allowed_payment_method":
-              //       "INSTANT_FUNDING_SOURCE"
-              // },
-              "item_list": itemList.toJson(),
-            },
-          ],
-          note: "Contact us for any questions on your order.",
-          onSuccess: (Map params) async {
-            print("onSuccess: $params");
-          },
-          onError: (error) {
-            print("onError: $error");
-            Navigator.pop(context);
-          },
-          onCancel: () {
-            print('cancelled:');
-          },
         ),
       ),
     );

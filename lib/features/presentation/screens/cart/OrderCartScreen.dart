@@ -1,5 +1,6 @@
 import 'package:e_commerce/features/presentation/widgets/cart/ContainerOrderCart.dart';
 import 'package:e_commerce/features/presentation/widgets/cart/CustomButtonToCheckout.dart';
+import 'package:e_commerce/features/presentation/screens/cart/CheckoutScreen.dart';
 import 'package:e_commerce/features/presentation/widgets/cart/CustomRowTotalCheck.dart';
 import 'package:e_commerce/features/presentation/widgets/cart/DashedLineWithContainer.dart';
 import 'package:e_commerce/features/presentation/widgets/cart/promoCodeWidget.dart';
@@ -51,7 +52,17 @@ class _OrderCartScreenState extends State<OrderCartScreen> {
               Gap(20),
               CustomRowTotalCheck(title: 'Total', price: '\$171.00'),
               Gap(30),
-              CustomButtonToCheckout(text: 'Proceed to Checkout', onTap: () {}),
+              CustomButtonToCheckout(
+                text: 'Proceed to Checkout',
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const CheckoutScreen(),
+                    ),
+                  );
+                },
+              ),
               Gap(10),
             ],
           ),
