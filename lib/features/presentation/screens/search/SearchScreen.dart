@@ -13,7 +13,6 @@ import 'package:e_commerce/features/presentation/screens/search/SearchInputScree
 import 'package:e_commerce/features/presentation/screens/search/SearchResultsScreen.dart';
 import 'package:e_commerce/features/presentation/screens/search/ScanScreen.dart';
 
-import 'package:e_commerce/features/data/services/ProductDataService.dart';
 import 'package:e_commerce/features/data/services/SearchHistoryService.dart';
 import 'package:flutter/material.dart';
 

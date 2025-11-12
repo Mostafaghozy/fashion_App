@@ -13,7 +13,6 @@ import 'package:e_commerce/features/presentation/widgets/home/seeAllWidget.dart'
 import 'package:e_commerce/features/presentation/screens/home/AllProductScreen.dart';
 import 'package:e_commerce/features/presentation/screens/home/Root.dart';
 
-import 'package:e_commerce/features/data/services/ProductDataService.dart';
 import 'package:e_commerce/features/presentation/widgets/home/CustomFilterWidget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';

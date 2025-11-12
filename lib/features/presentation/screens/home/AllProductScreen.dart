@@ -12,7 +12,6 @@ import 'package:e_commerce/features/presentation/widgets/search/section_title.da
 import 'package:e_commerce/features/presentation/widgets/home/sort_filter_bar.dart';
 import 'package:e_commerce/features/presentation/screens/home/Root.dart';
 
-import 'package:e_commerce/features/data/services/ProductDataService.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
