@@ -1,4 +1,4 @@
-# Fashion E-Commerce Platform
+# Fashion E-Commerce 🛒
 
 [![Flutter Version](https://img.shields.io/badge/Flutter-%3E%3D3.9.0-blue.svg)](https://flutter.dev/)
 [![Dart Version](https://img.shields.io/badge/Dart-%3E%3D3.9.0-blue.svg)](https://dart.dev/)
