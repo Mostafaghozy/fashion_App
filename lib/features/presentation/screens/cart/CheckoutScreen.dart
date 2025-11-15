@@ -140,6 +140,7 @@ class CheckoutScreen extends StatelessWidget {
                           paymentIntentInputModel: PaymentIntentInputModel(
                             amount: (171 * 100).toInt(),
                             currency: 'USD',
+                            customerId: 'cus_TQgvp95sdpS1jE',
                           ),
                         );
                       },
