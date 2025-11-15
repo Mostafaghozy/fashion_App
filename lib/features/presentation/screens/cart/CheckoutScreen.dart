@@ -1,3 +1,6 @@
+import 'package:e_commerce/features/data/models/stripe/payment_intent_input_model.dart';
+import 'package:e_commerce/features/data/repositories/checkout_repo_impl.dart';
+import 'package:e_commerce/features/presentation/manger/cubit/stripe_payment_cubit.dart';
 import 'package:e_commerce/features/presentation/screens/payment/PaymentSuccess.dart';
 import 'package:e_commerce/features/presentation/widgets/cart/ComtainerChangeAddressWidget.dart';
 import 'package:e_commerce/features/presentation/widgets/cart/ContainerPayWidget.dart';
@@ -12,6 +15,8 @@ import 'package:e_commerce/features/presentation/widgets/cart/RowTwoDividersWidg
 import 'package:e_commerce/features/presentation/widgets/cart/ZipCodeContainer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_stripe/flutter_stripe.dart';
 import 'package:gap/gap.dart';
 
 class CheckoutScreen extends StatelessWidget {
@@ -66,60 +71,83 @@ class CheckoutScreen extends StatelessWidget {
               Gap(20),
               RowTwoDividersWidget(),
               Gap(10),
-              Text(
-                "Card information",
-                style: TextStyle(color: Colors.grey.shade700, fontSize: 12),
-              ),
-              Gap(5),
-              FormFieldCustom(
-                hintText: '**** **** **** ****',
-                isCardNumber: true,
-              ),
-              Gap(10),
-              Text(
-                "Card holder name",
-                style: TextStyle(color: Colors.grey.shade700, fontSize: 12),
-              ),
-              Gap(5),
-              FormFieldCustom(hintText: '', isCardNumber: false),
-              Gap(10),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    "Country or region",
-                    style: TextStyle(color: Colors.grey.shade700, fontSize: 12),
-                  ),
+              // Text(
+              //   "Card information",
+              //   style: TextStyle(color: Colors.grey.shade700, fontSize: 12),
+              // ),
+              // Gap(5),
+              // FormFieldCustom(
+              //   hintText: '**** **** **** ****',
+              //   isCardNumber: true,
+              // ),
+              // Gap(10),
+              // Text(
+              //   "Card holder name",
+              //   style: TextStyle(color: Colors.grey.shade700, fontSize: 12),
+              // ),
+              // Gap(5),
+              // FormFieldCustom(hintText: '', isCardNumber: false),
+              // Gap(10),
+              // Row(
+              //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              //   children: [
+              //     Text(
+              //       "Country or region",
+              //       style: TextStyle(color: Colors.grey.shade700, fontSize: 12),
+              //     ),
 
-                  Padding(
-                    padding: const EdgeInsets.only(right: 110),
-                    child: Text(
-                      "Zip",
-                      style: TextStyle(
-                        color: Colors.grey.shade700,
-                        fontSize: 12,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-              Gap(5),
-              Row(children: [CountryDropdown(), Gap(20), ZipCodeContainer()]),
+              //     Padding(
+              //       padding: const EdgeInsets.only(right: 110),
+              //       child: Text(
+              //         "Zip",
+              //         style: TextStyle(
+              //           color: Colors.grey.shade700,
+              //           fontSize: 12,
+              //         ),
+              //       ),
+              //     ),
+              //   ],
+              // ),
+              // Gap(5),
+              // Row(children: [CountryDropdown(), Gap(20), ZipCodeContainer()]),
               Gap(30),
               CustomRowTotalCheck(title: 'Total', price: '\$171.00'),
               Gap(20),
-              CustomButtonToCheckout(
-                text: 'Pay',
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) {
-                        return const PaymentSuccess();
+              BlocProvider(
+                create: (context) => StripePaymentCubit(CheckoutRepoImpl()),
+                child: BlocConsumer<StripePaymentCubit, StripePaymentState>(
+                  listener: (context, state) {
+                    if (state is StripePaymentSuccess) {
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => PaymentSuccess(),
+                        ),
+                      );
+                    }
+                    if (state is StripePaymentFailure) {
+                      ScaffoldMessenger.of(
+                        context,
+                      ).showSnackBar(SnackBar(content: Text(state.errMessage)));
+                    }
+                  },
+                  builder: (context, state) {
+                    return CustomButtonToCheckout(
+                      onTap: () {
+                        BlocProvider.of<StripePaymentCubit>(
+                          context,
+                        ).makePayment(
+                          paymentIntentInputModel: PaymentIntentInputModel(
+                            amount: (171 * 100).toInt(),
+                            currency: 'USD',
+                          ),
+                        );
                       },
-                    ),
-                  );
-                },
+                      text: 'Pay',
+                      isLoading: state is StripePaymentLoading ? true : false,
+                    );
+                  },
+                ),
               ),
             ],
           ),

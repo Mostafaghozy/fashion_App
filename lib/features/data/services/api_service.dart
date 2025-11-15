@@ -4,7 +4,7 @@ class ApiService {
   final Dio dio = Dio();
 
   Future<Response> post({
-    required body,
+    required Map<String, dynamic> body,
     required String url,
     required String token,
     String? contentType,
@@ -12,9 +12,8 @@ class ApiService {
     var response = await dio.post(
       url,
       data: body,
-
       options: Options(
-        contentType: contentType, //because contentType will change
+        contentType: contentType,
         headers: {"Authorization": "Bearer $token"},
       ),
     );

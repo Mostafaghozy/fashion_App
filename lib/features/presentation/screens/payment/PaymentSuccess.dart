@@ -1,3 +1,5 @@
+import 'package:e_commerce/features/presentation/screens/home/Root.dart';
+import 'package:e_commerce/features/presentation/screens/payment/DeliveryStatusScreen.dart';
 import 'package:e_commerce/features/presentation/widgets/cart/CustomButtonToCheckout.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
@@ -46,13 +48,27 @@ class PaymentSuccess extends StatelessWidget {
           ),
           Gap(35),
           CustomButtonToCheckout(
-            onTap: () {},
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const DeliveryStatusScreen(),
+                ),
+              );
+            },
             text: "Order deliver status",
             fontWeight: FontWeight.w600,
             fontSize: 16,
           ),
           CustomButtonToCheckout(
-            onTap: () {},
+            onTap: () {
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const RootScreen(initialIndex: 0),
+                ),
+              );
+            },
             text: "Homepage",
             fontWeight: FontWeight.w600,
             fontSize: 16,

@@ -4,18 +4,20 @@ class CustomButtonToCheckout extends StatelessWidget {
   const CustomButtonToCheckout({
     super.key,
     required this.text,
-    required this.onTap,
+    this.onTap,
     this.fontWeight,
     this.fontSize,
     this.textColor,
     this.backgroundColor,
+    this.isLoading = false,
   });
   final String text;
-  final VoidCallback onTap;
+  final VoidCallback? onTap;
   final FontWeight? fontWeight;
   final double? fontSize;
   final Color? textColor;
   final Color? backgroundColor;
+  final bool isLoading;
 
   @override
   Widget build(BuildContext context) {
@@ -29,14 +31,16 @@ class CustomButtonToCheckout extends StatelessWidget {
           borderRadius: BorderRadius.circular(10),
         ),
         child: Center(
-          child: Text(
-            text,
-            style: TextStyle(
-              fontSize: fontSize ?? 15,
-              color: textColor ?? Colors.black,
-              fontWeight: fontWeight ?? FontWeight.w600,
-            ),
-          ),
+          child: isLoading
+              ? CircularProgressIndicator()
+              : Text(
+                  text,
+                  style: TextStyle(
+                    fontSize: fontSize ?? 15,
+                    color: textColor ?? Colors.black,
+                    fontWeight: fontWeight ?? FontWeight.w600,
+                  ),
+                ),
         ),
       ),
     );

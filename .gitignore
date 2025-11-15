@@ -45,3 +45,6 @@ app.*.map.json
 /android/app/release
 lib/test.json
 lib/core/api_keys.dart
+
+
+.fvm
