@@ -1,4 +1,6 @@
 import 'package:e_commerce/core/api_keys.dart';
+import 'package:e_commerce/features/presentation/screens/auth/authScreen.dart';
+import 'package:e_commerce/features/presentation/screens/auth/loginScreen.dart';
 import 'package:e_commerce/features/presentation/screens/cart/CartScreen.dart';
 import 'package:e_commerce/features/presentation/screens/cart/CheckoutScreen.dart';
 import 'package:e_commerce/features/presentation/screens/home/AllProductScreen.dart';
@@ -29,13 +31,13 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       useInheritedMediaQuery: true,
-      locale: DevicePreview.locale(context),
-      builder: DevicePreview.appBuilder,
+      // locale: DevicePreview.locale(context),
+      // builder: DevicePreview.appBuilder,
       debugShowCheckedModeBanner: false,
       title: "Fashion App",
       themeMode: ThemeMode.dark,
       darkTheme: AppThemes.dark,
-      home: RootScreen(),
+      home: AuthScreen(),
     );
   }
 }

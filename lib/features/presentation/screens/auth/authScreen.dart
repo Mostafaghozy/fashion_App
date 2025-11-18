@@ -12,7 +12,7 @@ class AuthScreen extends StatelessWidget {
       body: Stack(
         children: [
           const ImageCustom(imagePath: "assets/image.png"),
-          Container(color: Colors.black.withOpacity(0.4)),
+          Container(color: Colors.black.withOpacity(0.6)),
           Positioned(
             bottom: 200,
             left: 20,
@@ -26,17 +26,12 @@ class AuthScreen extends StatelessWidget {
                     color: Colors.white,
                     fontSize: 30,
                     fontWeight: FontWeight.bold,
-                    fontFamily: 'Jost',
                   ),
                 ),
                 SizedBox(height: 10),
                 Text(
                   "A premium online store for Men & women to find their stylish choice.",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 16,
-                    fontFamily: 'Jost',
-                  ),
+                  style: TextStyle(color: Colors.white, fontSize: 16),
                 ),
               ],
             ),
@@ -64,11 +59,7 @@ class AuthScreen extends StatelessWidget {
                   ),
                   child: const Text(
                     'Sign Up',
-                    style: TextStyle(
-                      fontFamily: 'Jost',
-                      fontWeight: FontWeight.bold,
-                      fontSize: 18,
-                    ),
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
                   ),
                 ),
                 const SizedBox(height: 15),
@@ -89,11 +80,7 @@ class AuthScreen extends StatelessWidget {
                   ),
                   child: const Text(
                     'Log in',
-                    style: TextStyle(
-                      fontFamily: 'Jost',
-                      fontWeight: FontWeight.bold,
-                      fontSize: 18,
-                    ),
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
                   ),
                 ),
               ],

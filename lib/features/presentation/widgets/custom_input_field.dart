@@ -9,8 +9,9 @@ class CustomInputField extends StatelessWidget {
   final Widget? suffixIcon;
   final Function(String)? onChanged;
   final String? Function(String?)? validator;
-  final Widget?
-  child; // when provided, renders this inside the same outlined box
+  final Widget? child;
+  final double? radius;
+  final String? errorText;
 
   const CustomInputField({
     super.key,
@@ -23,6 +24,8 @@ class CustomInputField extends StatelessWidget {
     this.onChanged,
     this.validator,
     this.child,
+    this.radius,
+    this.errorText,
   });
 
   @override
@@ -31,13 +34,13 @@ class CustomInputField extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         border: Border.all(color: Colors.grey[600]!),
-        borderRadius: BorderRadius.circular(8),
+        borderRadius: BorderRadius.circular(radius ?? 8),
       ),
       padding: const EdgeInsets.symmetric(horizontal: 8),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(label, style: TextStyle(color: Colors.grey[400], fontSize: 12)),
+          Text(label, style: TextStyle(color: Colors.grey[600], fontSize: 13)),
 
           if (child != null)
             child!
