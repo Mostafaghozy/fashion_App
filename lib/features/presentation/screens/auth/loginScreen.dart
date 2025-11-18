@@ -70,7 +70,7 @@ class _LogInScreenState extends State<LogInScreen> {
                     "Don't have an account?",
                     style: TextStyle(color: Colors.grey[600]),
                   ),
-                  SizedBox(width: 2),
+
                   TextButton(
                     onPressed: () {
                       Navigator.push(
@@ -80,7 +80,7 @@ class _LogInScreenState extends State<LogInScreen> {
                     },
                     child: Text(
                       "Sign up",
-                      style: TextStyle(color: Colors.white),
+                      style: TextStyle(color: Color(0xff979423)),
                     ),
                   ),
                 ],

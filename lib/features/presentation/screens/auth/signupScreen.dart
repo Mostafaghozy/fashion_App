@@ -1,4 +1,8 @@
 import 'package:e_commerce/features/presentation/screens/auth/confirmScreen.dart';
+import 'package:e_commerce/features/presentation/screens/auth/loginScreen.dart';
+import 'package:e_commerce/features/presentation/widgets/auth/ButtonContinueWithEmail.dart';
+import 'package:e_commerce/features/presentation/widgets/auth/ButtonLoginWith.dart';
+import 'package:e_commerce/features/presentation/widgets/custom_input_field.dart';
 import 'package:flutter/material.dart';
 
 class SignUpScreen extends StatefulWidget {
@@ -10,184 +14,127 @@ class SignUpScreen extends StatefulWidget {
 
 class _SignUpScreenState extends State<SignUpScreen> {
   final _emailController = TextEditingController();
-  bool _isEmailFilled = false;
+  final _passwordController = TextEditingController();
+  final _confirmPasswordController = TextEditingController();
 
-  @override
-  void initState() {
-    super.initState();
-    _emailController.addListener(() {
-      setState(() {
-        _isEmailFilled = _emailController.text.isNotEmpty;
-      });
-    });
-  }
+  String? emailError;
+  String? passwordError;
+  String? confirmPasswordError;
 
   @override
   void dispose() {
     _emailController.dispose();
+    _passwordController.dispose();
+    _confirmPasswordController.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20.0),
-          child: SingleChildScrollView(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+      body: Padding(
+        padding: const EdgeInsets.only(left: 10, right: 10, top: 100),
+        child: SingleChildScrollView(
+          physics: AlwaysScrollableScrollPhysics(),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
 
-              children: [
-                const SizedBox(height: 60),
-                // Replace with your actual logo widget or Image
-                Center(child: Image.asset('assets/logo.png', height: 80)),
-                const SizedBox(height: 60),
-                ElevatedButton.icon(
-                  onPressed: () {},
-                  icon: const Icon(Icons.apple, color: Colors.black),
-                  label: const Text(
-                    'Sign up with Apple',
-                    style: TextStyle(fontFamily: 'Jost-Bold.ttf'),
+            children: [
+              Center(child: Image.asset('assets/logo.png')),
+              const SizedBox(height: 60),
+
+              CustomInputField(
+                label: 'Email',
+                controller: _emailController,
+                radius: 10,
+                keyboardType: TextInputType.emailAddress,
+              ),
+              const SizedBox(height: 20),
+              CustomInputField(
+                label: 'Password',
+                controller: _passwordController,
+                radius: 10,
+                keyboardType: TextInputType.visiblePassword,
+                obscureText: true,
+                errorText: passwordError,
+              ),
+              const SizedBox(height: 20),
+              CustomInputField(
+                label: 'Confirm Password',
+                controller: _confirmPasswordController,
+                radius: 10,
+                keyboardType: TextInputType.visiblePassword,
+                obscureText: true,
+                errorText: confirmPasswordError,
+              ),
+              const SizedBox(height: 20),
+              ButtonContinueWithEmail(
+                text: "Sign Up",
+                emailController: _emailController,
+                passwordController: _passwordController,
+                confirmPasswordController: _confirmPasswordController,
+              ),
+
+              const SizedBox(height: 10),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    "Already use zimro?",
+                    style: TextStyle(color: Colors.grey[600]),
                   ),
-                  style: ElevatedButton.styleFrom(
-                    foregroundColor: Colors.black,
-                    backgroundColor: Colors.white,
-                    minimumSize: const Size(double.infinity, 50),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(15),
+
+                  TextButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => LogInScreen()),
+                      );
+                    },
+                    child: Text(
+                      "Log in",
+                      style: TextStyle(color: Color(0xff979423)),
                     ),
                   ),
-                ),
-                const SizedBox(height: 15),
-                ElevatedButton.icon(
-                  onPressed: () {},
-                  // You might need a custom Google icon here
-                  icon: Image.asset(
-                    'assets/google.png',
-                    height: 24,
-                    width: 24,
-                  ), // Assuming you have a google logo asset
-                  label: const Text(
-                    'Sign up with Google',
-                    style: TextStyle(fontFamily: 'Jost-Bold.ttf'),
-                  ),
-                  style: ElevatedButton.styleFrom(
-                    foregroundColor: Colors.black,
-                    backgroundColor: Colors.white,
-                    minimumSize: const Size(double.infinity, 50),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(15),
-                    ),
-                  ),
-                ),
-                const SizedBox(height: 40),
-                const Text(
-                  "What's your work email?",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontFamily: 'Jost',
-                    fontSize: 16,
-                  ),
-                ),
-                const SizedBox(height: 10),
-                TextField(
-                  controller: _emailController,
-                  decoration: InputDecoration(
-                    labelText: 'Email',
-                    labelStyle: TextStyle(
-                      color: Colors.grey[400],
-                      fontFamily: 'Jost',
-                    ),
-                    filled: true,
-                    fillColor: Colors.grey[800],
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10),
-                      borderSide: BorderSide.none,
-                    ),
-                  ),
-                  style: const TextStyle(color: Colors.white),
-                ),
-                const SizedBox(height: 20),
-                ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => ConfirmScreen()),
-                    );
-                  },
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: _isEmailFilled
-                        ? Colors.yellow
-                        : Colors.grey[800],
-                    minimumSize: const Size(double.infinity, 50),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                  ),
-                  child: Text(
-                    'Sign up',
-                    style: TextStyle(
-                      color: _isEmailFilled ? Colors.black : Colors.white,
-                      fontFamily: 'Jost',
-                    ),
-                  ),
-                ),
-                const SizedBox(height: 30),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    const Text(
-                      'Already use zimro? ',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontFamily: 'Jost-Bold.ttf',
+                ],
+              ),
+              const SizedBox(height: 15),
+              ButtonLoginWith(
+                icon: const Icon(Icons.apple, color: Colors.white, size: 24),
+                label: 'Continue with Apple',
+                onPressed: () {},
+              ),
+              const SizedBox(height: 15),
+              ButtonLoginWith(
+                icon: Image.asset('assets/google.png', height: 24, width: 24),
+                label: 'Continue with Google',
+                onPressed: () {},
+              ),
+              SizedBox(height: 30),
+              Center(
+                child: RichText(
+                  textAlign: TextAlign.center,
+                  text: TextSpan(
+                    style: TextStyle(color: Colors.grey[600], fontSize: 12),
+                    children: const [
+                      TextSpan(text: 'By signing up you accept the '),
+                      TextSpan(
+                        text: '\nTerm of service',
+                        style: TextStyle(color: Color(0xff979423)),
+                        // recognizer: TapGestureRecognizer()..onTap = () => launch('URL'),
                       ),
-                    ),
-                    GestureDetector(
-                      onTap: () {
-                        // Navigate to Log in screen
-                      },
-                      child: const Text(
-                        'Log in',
-                        style: TextStyle(
-                          color: Colors.yellow,
-                          // decoration: TextDecoration.underline,
-                          fontFamily: 'Jost',
-                        ),
+                      TextSpan(text: ' and '),
+                      TextSpan(
+                        text: 'Privacy Policy',
+                        style: TextStyle(color: Color(0xff979423)),
+                        // recognizer: TapGestureRecognizer()..onTap = () => launch('URL'),
                       ),
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 20),
-                Center(
-                  child: RichText(
-                    textAlign: TextAlign.center,
-                    text: const TextSpan(
-                      style: TextStyle(
-                        color: Colors.grey,
-                        fontFamily: 'Jost',
-                        fontSize: 12,
-                      ),
-                      children: [
-                        TextSpan(text: 'By signing up you accept the '),
-                        TextSpan(
-                          text: '\nTerm of service',
-                          style: TextStyle(color: Colors.yellow),
-                          // recognizer: TapGestureRecognizer()..onTap = () => launch('URL'),
-                        ),
-                        TextSpan(text: ' and '),
-                        TextSpan(
-                          text: 'Privacy Policy',
-                          style: TextStyle(color: Colors.yellow),
-                          // recognizer: TapGestureRecognizer()..onTap = () => launch('URL'),
-                        ),
-                      ],
-                    ),
+                    ],
                   ),
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),
