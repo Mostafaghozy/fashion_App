@@ -1,6 +1,6 @@
 import 'package:e_commerce/features/data/models/stripe/payment_intent_input_model.dart';
 import 'package:e_commerce/features/data/repositories/checkout_repo_impl.dart';
-import 'package:e_commerce/features/presentation/manger/cubit/stripe_payment_cubit.dart';
+import 'package:e_commerce/features/presentation/cubit/stripe/stripe_payment_cubit.dart';
 import 'package:e_commerce/features/presentation/screens/payment/PaymentSuccess.dart';
 import 'package:e_commerce/features/presentation/widgets/cart/ComtainerChangeAddressWidget.dart';
 import 'package:e_commerce/features/presentation/widgets/cart/ContainerPayWidget.dart';

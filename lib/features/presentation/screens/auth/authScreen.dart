@@ -1,7 +1,9 @@
+import 'package:e_commerce/features/presentation/cubit/login/login_cubit.dart';
 import 'package:e_commerce/features/presentation/widgets/imageCustom.dart';
 import 'package:e_commerce/features/presentation/screens/auth/loginScreen.dart';
 import 'package:e_commerce/features/presentation/screens/auth/signupScreen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class AuthScreen extends StatelessWidget {
   const AuthScreen({super.key});
@@ -67,9 +69,15 @@ class AuthScreen extends StatelessWidget {
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => LogInScreen()),
+                      MaterialPageRoute(
+                        builder: (context) => BlocProvider(
+                          create: (_) => LoginCubit(),
+                          child: LogInScreen(),
+                        ),
+                      ),
                     );
                   },
+
                   style: OutlinedButton.styleFrom(
                     side: const BorderSide(color: Colors.white),
                     foregroundColor: Colors.white,

@@ -23,6 +23,7 @@ dependencies:
   gap: ^3.0.1
   http: ^1.5.0
   liquid_glass_renderer: ^0.1.1-dev.11
+  meta: ^1.16.0
   permission_handler: ^11.3.1
 
 dev_dependencies:

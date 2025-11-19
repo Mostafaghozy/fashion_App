@@ -13,9 +13,9 @@ class SignUpScreen extends StatefulWidget {
 }
 
 class _SignUpScreenState extends State<SignUpScreen> {
-  final _emailController = TextEditingController();
-  final _passwordController = TextEditingController();
-  final _confirmPasswordController = TextEditingController();
+  final emailController = TextEditingController();
+  final passwordController = TextEditingController();
+  final confirmPasswordController = TextEditingController();
 
   String? emailError;
   String? passwordError;
@@ -23,9 +23,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
   @override
   void dispose() {
-    _emailController.dispose();
-    _passwordController.dispose();
-    _confirmPasswordController.dispose();
+    emailController.dispose();
+    passwordController.dispose();
+    confirmPasswordController.dispose();
     super.dispose();
   }
 
@@ -46,14 +46,14 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
               CustomInputField(
                 label: 'Email',
-                controller: _emailController,
+                controller: emailController,
                 radius: 10,
                 keyboardType: TextInputType.emailAddress,
               ),
               const SizedBox(height: 20),
               CustomInputField(
                 label: 'Password',
-                controller: _passwordController,
+                controller: passwordController,
                 radius: 10,
                 keyboardType: TextInputType.visiblePassword,
                 obscureText: true,
@@ -62,7 +62,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
               const SizedBox(height: 20),
               CustomInputField(
                 label: 'Confirm Password',
-                controller: _confirmPasswordController,
+                controller: confirmPasswordController,
                 radius: 10,
                 keyboardType: TextInputType.visiblePassword,
                 obscureText: true,
@@ -71,9 +71,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
               const SizedBox(height: 20),
               ButtonContinueWithEmail(
                 text: "Sign Up",
-                emailController: _emailController,
-                passwordController: _passwordController,
-                confirmPasswordController: _confirmPasswordController,
+                emailController: emailController,
+                passwordController: passwordController,
+                confirmPasswordController: confirmPasswordController,
               ),
 
               const SizedBox(height: 10),

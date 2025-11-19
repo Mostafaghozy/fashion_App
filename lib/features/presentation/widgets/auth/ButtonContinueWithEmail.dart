@@ -1,20 +1,19 @@
-import 'package:e_commerce/features/presentation/screens/auth/confirmScreen.dart';
-import 'package:e_commerce/features/presentation/screens/home/Root.dart';
-import 'package:e_commerce/features/presentation/screens/home/homeScreen.dart';
+import 'package:e_commerce/features/presentation/cubit/login/login_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ButtonContinueWithEmail extends StatelessWidget {
   const ButtonContinueWithEmail({
     super.key,
     required this.emailController,
     required this.passwordController,
-    this.text,
     this.confirmPasswordController,
+    this.text,
   });
+
   final TextEditingController emailController;
   final TextEditingController passwordController;
   final TextEditingController? confirmPasswordController;
-
   final String? text;
 
   bool isValidEmail(String email) {
@@ -26,106 +25,66 @@ class ButtonContinueWithEmail extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
       onPressed: () {
-        String email = emailController.text.trim();
-        String password = passwordController.text.trim();
-        String? confirmPassword = confirmPasswordController?.text.trim();
-        // EMAIL EMPTY
+        final email = emailController.text.trim();
+        final password = passwordController.text.trim();
+        final confirmPassword = confirmPasswordController?.text.trim();
+
+        // START VALIDATION -------------------------------
+
         if (email.isEmpty) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
-              content: Text(
-                'Please enter your email',
-                style: TextStyle(color: Colors.black),
-              ),
-              backgroundColor: Color.fromARGB(255, 192, 187, 37),
-            ),
-          );
+          showMsg(context, "Please enter your email");
           return;
         }
 
-        // EMAIL INVALID
         if (!isValidEmail(email)) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
-              content: Text(
-                'Please enter a valid email address',
-                style: TextStyle(color: Colors.black),
-              ),
-              backgroundColor: Color.fromARGB(255, 192, 187, 37),
-            ),
-          );
-          return;
-        }
-        // PASSWORD EMPTY
-        if (password.isEmpty) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
-              content: Text(
-                'Please enter your password',
-                style: TextStyle(color: Colors.black),
-              ),
-              backgroundColor: Color.fromARGB(255, 192, 187, 37),
-            ),
-          );
+          showMsg(context, "Please enter a valid email address");
           return;
         }
 
-        // PASSWORD TOO SHORT
-        if (password.length < 8) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
-              content: Text(
-                'Password must be at least 8 characters',
-                style: TextStyle(color: Colors.black),
-              ),
-              backgroundColor: Color.fromARGB(255, 192, 187, 37),
-            ),
-          );
+        if (password.isEmpty) {
+          showMsg(context, "Please enter your password");
           return;
         }
-        // CONFIRM PASSWORD — ONLY IF FIELD EXISTS
+
+        if (password.length < 8) {
+          showMsg(context, "Password must be at least 8 characters");
+          return;
+        }
+
         if (confirmPasswordController != null) {
           if (confirmPassword!.isEmpty) {
-            ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(
-                content: Text(
-                  'Please confirm your password',
-                  style: TextStyle(color: Colors.black),
-                ),
-                backgroundColor: Color.fromARGB(255, 192, 187, 37),
-              ),
-            );
+            showMsg(context, "Please confirm your password");
             return;
           }
 
           if (password != confirmPassword) {
-            ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(
-                content: Text(
-                  'Password do not match',
-                  style: TextStyle(color: Colors.black),
-                ),
-                backgroundColor: Color.fromARGB(255, 192, 187, 37),
-              ),
-            );
+            showMsg(context, "Passwords do not match");
             return;
           }
         }
 
-        // ALL GOOD → GO NEXT SCREEN
-        Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(builder: (context) => RootScreen()),
-        );
+        // END VALIDATION --------------------------------
+
+        // CALL Cubit after validation success
+        context.read<LoginCubit>().logIn(email: email, password: password);
       },
       style: ElevatedButton.styleFrom(
-        backgroundColor: Color.fromARGB(255, 192, 187, 37),
+        backgroundColor: const Color.fromARGB(255, 192, 187, 37),
         minimumSize: const Size(double.infinity, 50),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
       ),
       child: Text(
-        text ?? 'Continue with email',
-        style: TextStyle(color: Colors.black),
+        text ?? "Continue with Email",
+        style: const TextStyle(color: Colors.black),
+      ),
+    );
+  }
+
+  void showMsg(BuildContext context, String msg) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(msg, style: const TextStyle(color: Colors.black)),
+        backgroundColor: const Color.fromARGB(255, 192, 187, 37),
       ),
     );
   }
